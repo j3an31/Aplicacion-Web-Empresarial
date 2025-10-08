@@ -1,0 +1,30 @@
+
+#hero {
+  height: 100vh;
+  background-image: url("../imagenes/portada.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.btn {
+  background-color: #631515;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+
