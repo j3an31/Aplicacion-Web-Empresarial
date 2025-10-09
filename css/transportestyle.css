@@ -1,0 +1,91 @@
+body {
+  font-family: "poppins", sans-serif;
+  margin: 0px;
+  padding: 0%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  background-color: #690505;
+}
+
+header img {
+  width: 180px;
+  margin: 0%;
+  padding: 0%;
+}
+
+.logo-container  {
+  transition: transform 0.5s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.2);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  background-color: rgb(212, 201, 169);
+  
+  position: sticky; /*Mantiene fija la barra de navegación*/
+  top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
+}
+
+nav a {
+  color: rgb(125, 125, 5);
+  background-color: rgb(212, 201, 169);
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #631515;
+  transition: all 0.7s ease;
+}
+
+.hero {
+    background-image: url(/imagenes/imagenes_transporte/heroimg_transporte.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    filter: blur(1px);
+}
+
+.texto_hero {
+    color: aliceblue;
+}
+
+main {
+    margin: 0%;
+    padding: 0%;
+}
+.informacion {
+    background-color: antiquewhite;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.texto {
+    width: 500px;
+    padding-inline: 100px;
+    text-align: justify;
+}
+
+
+
