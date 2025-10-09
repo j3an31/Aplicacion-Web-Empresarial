@@ -1,0 +1,80 @@
+body{
+    font-family: "poppins", sans-serif;
+    background-color: #f2f6fa;
+    color: #333;
+    margin:0;
+    padding:0;
+}
+
+h2 {
+  margin-top: 30px;
+  color: darkred;
+}
+
+p{
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.form-reserva{
+    width:500px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    color:darkred;
+}
+
+.form-grupo{
+    margin-bottom: 15px;
+}
+
+label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    box-sizing: border-box ;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color: #000000;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+    border-color: #000000;
+    transition: 0.3s;
+}
+
+.btn-reservar{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-reservar:hover{
+    background-color: #ffffff;
+    color: black;
+    transition: 0.3s;
+}
