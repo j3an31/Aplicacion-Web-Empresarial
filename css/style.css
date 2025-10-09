@@ -27,4 +27,73 @@
     color: black;
 }
 
+body {
+  background-color: rgb(192, 180, 180);
+}
+nav {
+  text-align: center;
+  background-color: rgb(192, 180, 180);
+  padding: 20px 30px;
+  position: sticky; /*Mantiene fija la barra de navegación*/
+  top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
+}
 
+header {
+  background-color: #690505;
+  text-align: center;
+
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 70px; 
+  color: rgb(224, 235, 245);
+  margin: 0;
+  padding: 15px 0;
+}
+
+a {
+  color: rgb(125, 125, 5);
+  background-color: rgb(192, 180, 180);
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: #631515;
+  transition: all 0.7s ease;
+}
+
+.logo {
+  margin: 0 0 0 20px;
+}
+
+#presentacion {
+  padding: 30px 0 30px 40px;
+  font-size: 24px;
+  color: whitesmoke;
+  letter-spacing: 0.5px;
+  background-color: #631515;
+}
+
+#bienvenida {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 80px 0 10px 0;
+}
+
+h2 {
+  font-size: 35px;
+  letter-spacing: 0.5px; 
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  font-family: 'Roboto', sans-serif;
+}
