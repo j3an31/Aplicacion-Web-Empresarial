@@ -1,57 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contactanos</title>
+    <link rel="stylesheet" href="css/contactostyle.css">
 </head>
+
 <body>
-    <h2>Reserva tu Tour</h2>
-    <p>Completa el formulario para reservar tu próxima aventura con <strong>MistiTours</strong>.</p>
+    <header>
+        
+        <div class="logo-container">
+            <div class="img-container">
+                <a href="mistiTours.html"><img src="imagenes/Logo.png" alt="Logo de MistiTours" class="logo" align="left" width="150" height="auto"></a>
+            </div>
+        </div>
+    
+        
 
-    <form action="#" method="post" class="form-reserva">
-        <div class="form-grupo">
-        <label for="nombre">Nombre completo:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </header>
+    <nav>
+            <ul>
+                <li><a href="mistiTours.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="transporte.html">Transporte</a></li>
+                <li><a href="destinos.html">Destinos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            
+        </nav>
+    <main>
+
+        <form action="#" method="post" class="form-reserva">
+           
+            <h2>Contactanos</h2>
+            
+
+            <div class="form-grupo">
+                <label for="nombre">Nombre completo:</label><br>
+                <input type="text" id="nombre" name="nombre" placeholder="Tus nombres" required>
+            </div>
+            
+            <div class="form-grupo">
+                <label for="apellido">Nombre completo:</label><br>
+                <input type="text" id="apellido" name="apellido" placeholder="Tus apellidos" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="email">Correo electrónico:</label><br>
+                <input type="email" id="email" name="email" placeholder="tucorreo@example.com" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" id="telefono" name="telefono" placeholder="+51 999 999 999">
+            </div>
+
+            <div class="form-grupo">
+                <label for="tour">Selecciona tu tour:</label><br>
+                <select id="tour" name="tour" required>
+                    <option value="">-- Elige un tour --</option>
+                    <option value="colca">Cañón del Colca</option>
+                    <option value="sillar">Ruta del Sillar</option>
+                    <option value="santacatalina">Monasterio de Santa Catalina</option>
+                    <option value="yanahuara">Mirador de Yanahuara</option>
+                </select>
+            </div>
+
+            <div class="form-grupo">
+                <label for="fecha">Fecha del tour:</label> <br>
+                <input type="date" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="personas">Número de personas:</label><br>
+                <input type="number" id="personas" name="personas" min="1" max="20" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="mensaje">Comentarios adicionales:</label> <br>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus preferencias o dudas..." ></textarea>
+            </div>
+
+            <button type="submit" class="btn-reservar">Reservar ahora</button>
+
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-marcadeagua">
+            <img src="imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo" align="left" width="150" height="auto">
         </div>
 
-        <div class="form-grupo">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" placeholder="tucorreo@example.com" required>
+        <div class="footer-informacion">
+            <p>&copy; 2025 MistiTours | Todos los derechos reservados.</p>            
         </div>
-
-        <div class="form-grupo">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="+51 999 999 999">
-        </div>
-
-        <div class="form-grupo">
-        <label for="tour">Selecciona tu tour:</label>
-        <select id="tour" name="tour" required>
-            <option value="">-- Elige un tour --</option>
-            <option value="colca">Cañón del Colca</option>
-            <option value="sillar">Ruta del Sillar</option>
-            <option value="santacatalina">Monasterio de Santa Catalina</option>
-            <option value="yanahuara">Mirador de Yanahuara</option>
-        </select>
-        </div>
-
-        <div class="form-grupo">
-        <label for="fecha">Fecha del tour:</label>
-        <input type="date" id="fecha" name="fecha" required>
-        </div>
-
-        <div class="form-grupo">
-        <label for="personas">Número de personas:</label>
-        <input type="number" id="personas" name="personas" min="1" max="20" required>
-        </div>
-
-        <div class="form-grupo">
-        <label for="mensaje">Comentarios adicionales:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus preferencias o dudas..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-reservar">Reservar ahora</button>
-    </form>
+        
+        
+    </footer>   
+    
 </body>
 </html>

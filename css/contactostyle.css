@@ -1,0 +1,168 @@
+body {
+    font-family: "poppins", sans-serif;
+    margin: 0px;
+    padding: 0%;
+}
+header {
+    margin: 0%;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #641d1d;
+
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(212, 201, 169);
+
+}
+
+.img-container img {
+    margin: 0%;
+    padding: 0%;
+
+    width: 180px;
+}
+
+.img-container {
+    transition: transform 0.5s ease;
+}
+
+.img-container:hover {
+    transform: scale(1.2);
+}
+
+nav {
+    position: sticky;          /* 🔹 se “pega” al llegar arriba */
+    top: 0;                    /* punto donde se pega */
+    z-index: 1000;             /* para que quede sobre el contenido */
+    background-color: #641d1d; /* mantiene el color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* sombra cuando se queda fijo */
+}
+nav ul{
+    padding: 0%;
+    margin: 0%;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    list-style-type: none;
+    gap: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    
+}
+
+nav li {
+    font-size: 20px;
+    padding: 20px 30px;
+    transition: all 0.7s ease;
+}
+
+nav li:hover {
+    background-color: rgb(212, 201, 169);
+}
+
+
+main {
+    padding: 50px;
+    background-image: url(/imagenes/plazadearmas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /* mantiene el tamaño real */
+
+    height: 100vh;
+    
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-reserva {
+    width: 600px;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    background: rgba(255, 255, 255, 0.7); /* capa translúcida */
+    backdrop-filter: blur(10px);          /* 🔹 aplica el difuminado */
+    -webkit-backdrop-filter: blur(10px);  /* soporte para Safari */
+    padding: 2rem 3rem;
+    border-radius: 20px;
+
+    text-align: center;
+    box-shadow: 1px 7px 30px rgba(0,0,0,0.3);
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+
+    width: 500px;
+    
+}
+
+.form-grupo label, h2 {
+    color: #690505;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    border: black solid 0px ;
+    border-radius: 10px;
+
+    padding: 10px;
+}
+
+.btn-reservar {
+    padding: 10px 20px;
+
+    border: solid 0px;
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-reservar:hover {
+    background-color: #888484;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+
+
+    color: aliceblue;
+
+    background-color: #641d1d;
+
+}
+
+
+
+
+
+
