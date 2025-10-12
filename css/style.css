@@ -52,26 +52,25 @@ nav a:hover {
 }
 
 #hero {
-  height: 100vh;
-  background-image: url("../imagenes/portada.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  height: 100vh; /* Ocupa toda la altura visible de la ventana */
+  background-image: url("../imagenes/portada.jpg"); 
+  background-size: cover; /* La imagen cubre todo el área sin distorsionarse */
+  background-position: center; /* Centra la imagen en el contenedor */
+  display: flex; /* Usa flexbox para alinear el contenido interno */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto de los elementos hijos */
+  color: white; 
 }
 
 .btn {
-  background-color: #631515;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  background-color: #631515; /* Fondo rojo oscuro del botón */
+  color: white; /* Texto blanco */
+  padding: 12px 24px; /* Espaciado interno para agrandar el botón */
+  border-radius: 6px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado en el texto */
+  font-weight: bold; /* Texto en negrita */
+  transition: 0.3s; /* Animación suave al cambiar el fondo/color */
 }
 
 .btn:hover {
