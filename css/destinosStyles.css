@@ -1,0 +1,139 @@
+
+/* Estilos para la página "Destinos" */
+
+body {
+    margin: 0px;
+    padding: 0%;
+    display: flex; /* Se usa flexbox para centrar todo el contenido */
+    flex-direction: column; /* Los elementos (header, main) van uno debajo del otro */
+    align-items: center;
+    background-color: rgb(250, 242, 218);
+}
+
+main {
+    width: 90%; /* Ocupará el 90% del ancho del navegador */
+    max-width: 1200px; /* No crece más allá de 1200px en pantallas grandes */
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #690505;
+    margin: 0;
+    width: 100%;
+}
+
+header img {
+  width: 180px;
+  margin: 0%;
+  padding: 0%;
+}
+
+.logo-container  { 
+  transition: transform 0.5s ease; /* La propiedad transform será animada*/
+}
+
+.logo-container:hover { /* Al pasar el puntero, la imagen se agranda */
+  transform: scale(1.2); 
+}
+
+nav {
+  padding: 20px 0;
+  margin: 0;
+  text-align:center;
+  background-color: rgb(212, 201, 169);
+  position: sticky; /*Mantiene fija la barra de navegación*/
+  top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
+      width: 100%;
+
+}
+
+nav a {
+  color: rgb(125, 125, 5);
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #631515;
+  transition: all 0.7s ease;
+}
+
+#hero {
+  height: 100vh;
+  background-image: url("../imagenes/portada.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.btn {
+  background-color: #631515;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+#destinosTitulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px; 
+    font-family: 'Roboto', sans-serif;
+    color: #631515;
+    margin: 5px auto 5% auto;
+}
+
+#descripcion {
+    color: #631515;
+    font-size: 25px;
+}
+
+section {
+    background-color: whitesmoke;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border-radius: 15px;
+    margin: 30px; 
+    width: 95%; /* Se ajustan al contenedor */
+    padding: 7px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #631515;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px; 
+    padding: 0 0 0 18px;
+}
+
+h3, h4 {
+    color: #631515;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin: 18px;
+    letter-spacing: 0.3px; 
+}
+
+p, ul {
+    color: rgba(28, 74, 114, 0.635);
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin: 18px;
+    letter-spacing: 0.3px;
+}

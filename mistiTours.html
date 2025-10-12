@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viaja por Arequipa</title>
     <link rel="stylesheet" href="css/style.css"> <!-- Enlace al archivo CSS externo -->
 </head>
+
 <body>
-    <!-- Encabezado y Menu de Navegacion-->
+    <!-- Encabezado -->
     <header>
         <div class="logo-container">
             <a href="mistiTours.html"><img src="imagenes/logo_blanco.png" alt="Logo de MistiTours"></a>
         </div>
     </header>
-
+    <!-- Menu de Navegacion -->
     <nav>
         <a href="mistiTours.html">Inicio</a>
         <a href="nosotros.html">Nosotros</a>
-        <a href="transporte.html">Trans</a>
+        <a href="transporte.html">Transportes</a>
         <a href="destinos.html">Destinos</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="contacto.html">Reservar</a>
     </nav>
 
     <section id="hero">
         <div class="hero-content">
             <h1>Arequipa</h1>
-            <p>Bienvenido a la Ciudad Blanca</p>
+            <p style="color:aliceblue;">Bienvenido a la Ciudad Blanca</p>
             <a href="#destinos-populares" class="btn">Saber Más</a>
         </div>
     </section>
@@ -35,7 +36,7 @@
             <h2 id="presentacion" style="color:white">Somos MistiTours</h2>
         </section>
         <section id="bienvenida">
-            <h2 style="color: rgb(33, 36, 232);"><strong>Bienvenidos</strong></h2>
+            <h2 style="color: rgb(12, 85, 164);"><strong>Bienvenidos</strong></h2>
             <p> 
                 MistiTours se complace en presentarles nuestros Paquetes Turísticos en el sur del país. <br>
                 La amplia experiencia y calidez humana distingue y soporta la profesionalidad <br>
@@ -43,9 +44,10 @@
                 y grupos de turismo receptivo de la región y sur del país. 
             </p>
         </section>
-        <section id="destinosMasVisitados">
-            <h2><strong>Destinos Más Visitados</strong></h2>
-            <article class="galeria">
+
+        <section id="presentacionDestinos">
+            <h2><strong>Nuestros Destinos</strong></h2>
+            <div class="galeria">
                 <div class="targeta">
                     <img src="https://www.chakutravel.com/images/arequipa/colca/mirador2.jpg" alt="Cañon del Colca">
                     <p>Tour a Cañon del Colca</p>
@@ -65,13 +67,19 @@
                     <img src="https://www.chakutravel.com/images/arequipa/salinas/bano1.jpeg" alt="Laguna de Salinas">
                     <p>Tour Laguna de Salinas</p>
                 </div>
-            </article>
+
+                <div class="targeta">
+                    <img src="https://www.chakutravel.com/images/arequipa/campina/carmenalto1.jpg" alt="Bus Campiña">
+                    <p>Tour Bus Campiña</p>
+                </div>
+
+            </div>
         </section>
         
         <section id="recomendaciones">
             <h2><strong>Recomendaciones<strong></h2>
-            <div>
-                <p>Antes de viajar con nuestro servicio, ten en cuenta lo siguiente: </p>
+            <div id="consejo">
+                <p> Antes de viajar con nuestro servicio, ten en cuenta lo siguiente: </p>
             </div>
             <div id="tips-container">
                 <div class="tip">

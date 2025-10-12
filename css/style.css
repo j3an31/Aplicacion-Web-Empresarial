@@ -1,3 +1,6 @@
+
+/* Estilos para la página principal (Home) */
+
 body {
   font-family: "poppins", sans-serif;
   margin: 0px;
@@ -17,21 +20,19 @@ header img {
   padding: 0%;
 }
 
-.logo-container  {
-  transition: transform 0.5s ease;
+.logo-container  { 
+  transition: transform 0.5s ease; /* La propiedad transform será animada*/
 }
 
-.logo-container:hover {
-  transform: scale(1.2);
+.logo-container:hover { /* Al pasar el puntero, la imagen se agranda */
+  transform: scale(1.2); 
 }
 
 nav {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-
+  padding: 20px 0;
+  margin: 0;
+  text-align:center;
   background-color: rgb(212, 201, 169);
-  
   position: sticky; /*Mantiene fija la barra de navegación*/
   top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
   del borde superior de la ventana de visualización se comporta como fixed*/
@@ -39,7 +40,6 @@ nav {
 
 nav a {
   color: rgb(125, 125, 5);
-  background-color: rgb(212, 201, 169);
   padding: 20px 30px;
   text-decoration: none;
   font-size: 20px;
@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 body {
-  background-color: rgb(212, 201, 169);
+  background-color: rgb(250, 242, 218);
 }
 
 h1 {
@@ -92,8 +92,9 @@ h1 {
 }
 
 #presentacion {
-  padding: 1.5% 0 1.5% 40px;
-  font-size: 24px;
+  margin: 0;
+  padding: 3% 65% 3% 0;
+  font-size: 40px;
   color: whitesmoke;
   letter-spacing: 0.5px;
   background-color: #631515;
@@ -103,6 +104,12 @@ h1 {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   margin: 80px 0 30px 0;
+}
+
+#bienvenida p { 
+  color: rgba(50, 70, 87, 0.635);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 h2 {
@@ -115,16 +122,17 @@ h2 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.3px;
   font-family: 'Roboto', sans-serif;
+  color: rgba(31, 43, 54, 0.635);
 }
 
 .tip p {
   font-weight: normal; 
 }
 
-#destinosMasVisitados {
+#presentacionDestinos {
   text-align: center;
   margin: 7% 0 10px 0;
 }
@@ -133,9 +141,11 @@ p {
   display: flex; 
   flex-wrap: wrap; /* Permite que bajen si no caben */
   justify-content: center; /* Centra horizontalmente */
-  gap: 20px; /* Espacio entre cuadros */
+  gap: 25px; /* Espacio entre cuadros */
   padding: 4% 0;
   background: whitesmoke;
+  border-radius: 15px;
+  margin: 50px; 
 }
 
 .targeta {
@@ -143,7 +153,7 @@ p {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   text-align: center;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease; /* La propiedad transform será animada*/
   width: 250px; /* Tamaño fijo (ajustable) */
 }
 
@@ -159,7 +169,6 @@ p {
 
 .targeta p {
   padding: 10px;
-  font-weight: 500;
   color: #333;
 }
 
@@ -167,13 +176,24 @@ p {
   text-align: center;
 }
 
+#consejo p {
+  margin: 0 0 2% 5%;
+  font-weight: bold;
+
+}
+
 .tip {
   text-align: center;
   padding: 6px 8px;
-  width: 80%; /* Ocupará el 95% del ancho del navegador */
-  max-width: 1000px; /* No crece más allá de 1200px en pantallas grandes */
+  max-width: 700px; /* No crece más allá de 700px en pantallas grandes */
   border-radius: 15px;
-  margin: 0.5% auto;
+  margin: 1% auto;
+  transition: transform 0.8s ease; /* La propiedad transform será animada*/
+
+}
+
+.tip h3 {
+  color: #333;
 }
 
 .tips-container {
@@ -188,7 +208,8 @@ p {
   background: #ccc; 
 }
 
-.tip:hover {
+.tip:hover { 
   cursor: pointer;
-  background-color: #df7f7f;
+  background-color: #bd2626;
+  transform: scale(1.1); /* Al pasar el puntero, la imagen se agranda */
 }
