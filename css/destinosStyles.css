@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     padding: 0%;
+    font-family: "poppins", sans-serif;
     display: flex; /* Se usa flexbox para centrar todo el contenido */
     flex-direction: column; /* Los elementos (header, main) van uno debajo del otro */
     align-items: center;
@@ -136,4 +137,21 @@ p, ul {
     font-family: 'Roboto', sans-serif;
     margin: 18px;
     letter-spacing: 0.3px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+    color: aliceblue;
+    width: 100%;
+
+    background-color: #641d1d;
+
+}
+
+#contacto {
+    color: white;
 }

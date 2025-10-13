@@ -1,3 +1,9 @@
+body {
+  font-family: "poppins", sans-serif;
+  margin: 0px;
+  padding: 0%;
+}
+
 /* Fondo con imagen */
 #nosotros-hero {
   background-image: url('../imagenes/plazadearmas.jpg'); /* Establece la imagen de fondo de la sección */
@@ -96,4 +102,22 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+
+
+    color: aliceblue;
+
+    background-color: #641d1d;
+
+}
+
+#contacto {
+    color: white;
 }
