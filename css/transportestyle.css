@@ -2,7 +2,7 @@ body {
   margin: 0px;
   padding: 0%;
   
-  font-family: "poppins", sans-serif;   /*Fuente de letra*/
+  font-family: "poppins", sans-serif;
   
 }
 
@@ -28,6 +28,9 @@ header img {
   transform: scale(1.2);
 }
 
+.texto_hero{
+  font-size: 40px;
+}
 nav {
   display: flex;
   justify-content: center;
@@ -76,6 +79,7 @@ nav a:hover {
 main {
   margin: 0%;
   padding: 0%;
+  
 }
 
 .contenido {

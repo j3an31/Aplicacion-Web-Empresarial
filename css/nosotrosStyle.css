@@ -2,6 +2,15 @@ body {
   font-family: "poppins", sans-serif;
   margin: 0px;
   padding: 0%;
+  
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;  /* límite de ancho */
+  margin: 0 auto;     /* centra horizontalmente */
+  padding: 40px 20px; /* espacio interno */
+  box-sizing: border-box;
 }
 
 /* Fondo con imagen */
