@@ -1,0 +1,109 @@
+body {
+  font-family: "poppins", sans-serif;
+  margin: 0px;
+  padding: 0%;
+}
+
+/* Fondo con imagen */
+#nosotros-hero {
+  background-image: url('../imagenes/plazadearmas.jpg'); /* Establece la imagen de fondo de la sección */
+  background-size: cover; /* Hace que la imagen cubra todo el área sin distorsionarse */
+  background-position: center; /* Centra la imagen en el contenedor */
+  height: 100vh; /* La sección ocupa toda la altura visible de la ventana */
+  color: #fff; /* El texto dentro de la sección será blanco */
+  display: flex; /* Usa flexbox para alinear el contenido interno */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+/* Capa semitransparente encima del fondo */
+.nosotros-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenido */
+.Contenido {
+  max-width: 800px;
+  padding: 40px;
+  text-align: center;
+}
+.Contenido h2 {
+    font-size: 50px;
+    color: white;
+}
+
+.Contenido p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+nav {
+  padding: 20px 0;
+  margin: 0;
+  text-align:center;
+  background-color: rgb(212, 201, 169);
+  position: sticky; /*Mantiene fija la barra de navegación*/
+  top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
+}
+
+nav a {
+  color: rgb(125, 125, 5);
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #631515;
+  transition: all 0.7s ease;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #641d1d;
+}
+
+header img {
+  width: 200px;
+}
+
+.logo-container  {
+  transition: transform 0.5s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.2);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+
+
+    color: aliceblue;
+
+    background-color: #641d1d;
+
+}
+
+#contacto {
+    color: white;
+}
