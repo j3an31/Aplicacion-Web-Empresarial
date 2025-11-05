@@ -5,29 +5,22 @@ body {
 }
 header {
     margin: 0%;
-
     display: flex;
     flex-direction: column;
-    background-color: #641d1d;
-
+    background-color: rgb(125, 125, 5);
 }
 .logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: rgb(212, 201, 169);
-
+    background-color: #641d1d;
 }
 
 .img-container img {
-    margin: 0%;
-    padding: 0%;
-
+    margin: 0;
+    padding: 0;
     width: 180px;
-}
-
-.img-container {
+    filter: brightness(0) invert(1); /* aquí está la magia */
     transition: transform 0.5s ease;
 }
 
@@ -35,41 +28,35 @@ header {
     transform: scale(1.2);
 }
 
-nav {
-    position: sticky;          /* 🔹 se “pega” al llegar arriba */
-    top: 0;                    /* punto donde se pega */
-    z-index: 1000;             /* para que quede sobre el contenido */
-    background-color: #641d1d; /* mantiene el color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* sombra cuando se queda fijo */
+
+.img-container:hover {
+    transform: scale(1.2);
 }
-nav ul{
-    padding: 0%;
-    margin: 0%;
 
-    display: flex;
-    justify-content: center;
-    align-content: center;
+nav {
+    padding: 20px 0;
+    margin: 0;
+    text-align:center;
+    background-color: rgb(212, 201, 169);
+    position: sticky; /*Mantiene fija la barra de navegación*/
+    top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
+    z-index: 1000; /* 👈 esta línea evita que quede tapado */
 
-    list-style-type: none;
-    gap: 50px;
 }
 
 nav a {
+    color: rgb(125, 125, 5);
+    padding: 20px 30px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
-    
+    font-size: 20px;
+    font-weight: bold;
 }
 
-nav li {
-    font-size: 20px;
-    padding: 20px 30px;
+nav a:hover {
+    background-color: #631515;
     transition: all 0.7s ease;
 }
-
-nav li:hover {
-    background-color: rgb(212, 201, 169);
-}
-
 
 main {
     padding: 50px;

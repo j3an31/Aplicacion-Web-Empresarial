@@ -2,6 +2,15 @@ body {
   font-family: "poppins", sans-serif;
   margin: 0px;
   padding: 0%;
+  
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;  /* límite de ancho */
+  margin: 0 auto;     /* centra horizontalmente */
+  padding: 40px 20px; /* espacio interno */
+  box-sizing: border-box;
 }
 
 /* Fondo con imagen */
@@ -43,40 +52,26 @@ body {
 }
 
 nav {
-    position: sticky;          /* se “pega” al llegar arriba */
-    top: 0;                    /* punto donde se pega */
-    z-index: 1000;             /* para que quede sobre el contenido */
-    background-color: #641d1d; /* mantiene el color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* sombra cuando se queda fijo */
-}
-nav ul{
-    padding: 0%;
-    margin: 0%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    list-style-type: none;
-    gap: 50px;
+  padding: 20px 0;
+  margin: 0;
+  text-align:center;
+  background-color: rgb(212, 201, 169);
+  position: sticky; /*Mantiene fija la barra de navegación*/
+  top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
+  del borde superior de la ventana de visualización se comporta como fixed*/
 }
 
 nav a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    
+  color: rgb(125, 125, 5);
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-nav li {
-    font-size: 20px;
-    padding: 20px 30px;
-    transition: all 0.7s ease;
-}
-
-nav li:hover {
-    background-color: rgb(212, 201, 169);
-}
-
-nav li:hover a {
-    color: rgb(0, 0, 0);
+nav a:hover {
+  background-color: #631515;
+  transition: all 0.7s ease;
 }
 
 header {
