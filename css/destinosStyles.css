@@ -8,7 +8,10 @@ body {
     display: flex; /* Se usa flexbox para centrar todo el contenido */
     flex-direction: column; /* Los elementos (header, main) van uno debajo del otro */
     align-items: center;
-    background-color: rgb(250, 242, 218);
+
+    background: url(/imagenes/bg.jpeg);
+    background-size: cover;
+    background-repeat:no-repeat ;
 }
 
 main {
