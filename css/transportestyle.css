@@ -89,12 +89,14 @@ main {
   flex-direction: column;
   text-align: center;
   
+  background-color: rgba(212, 201, 169, 0.549);
 }
 
 .informacion {
   display: flex;
   flex-direction: column;
   align-content: center;
+  
 }
 .info-somos-mistitours {
   background-color: #690505;
@@ -129,7 +131,10 @@ main {
 }
 
 .transportes {
-  background-color: rgb(250, 242, 218);
+  background: url(/imagenes/bg.jpeg);
+  background-size: cover;
+  background-repeat:no-repeat;
+  
   
   padding: 20px;
 

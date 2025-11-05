@@ -76,7 +76,10 @@ nav a:hover {
 }
 
 body {
-  background-color: rgb(250, 242, 218);
+  background: url(/imagenes/bg.jpeg);
+  background-size: cover;
+  background-repeat:no-repeat;
+  
 }
 
 h1 {
@@ -169,6 +172,9 @@ p {
 }
 
 .recomendaciones {
+  text-align: center;
+}
+#consejo {
   text-align: center;
 }
 
