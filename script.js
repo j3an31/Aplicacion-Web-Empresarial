@@ -53,5 +53,4 @@ const enviar = (e) => {
   document.querySelector('.form-reserva').reset(); // Limpia el formulario
 };
 
-// Escuchar el envío del formulario
 document.querySelector('.form-reserva').addEventListener('submit', enviar);
