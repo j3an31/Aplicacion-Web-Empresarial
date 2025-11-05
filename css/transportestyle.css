@@ -2,7 +2,7 @@ body {
   margin: 0px;
   padding: 0%;
   
-  font-family: "poppins", sans-serif;   /*Fuente de letra*/
+  font-family: "poppins", sans-serif;
   
 }
 
@@ -28,22 +28,30 @@ header img {
   transform: scale(1.2);
 }
 
+.texto_hero{
+  font-size: 40px;
+}
 nav {
-  padding: 20px 0;
-  margin: 0;
-  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
   background-color: rgb(212, 201, 169);
+  
   position: sticky; /*Mantiene fija la barra de navegación*/
   top: 0; /*Cuando el borde superior esté a 0 píxeles de distancia 
   del borde superior de la ventana de visualización se comporta como fixed*/
 }
 
 nav a {
+  background-color: rgb(212, 201, 169);
   color: rgb(125, 125, 5);
+  
   padding: 20px 30px;
-  text-decoration: none;
+  
   font-size: 20px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 nav a:hover {
@@ -71,6 +79,7 @@ nav a:hover {
 main {
   margin: 0%;
   padding: 0%;
+  
 }
 
 .contenido {
