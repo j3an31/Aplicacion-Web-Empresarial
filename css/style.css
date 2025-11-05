@@ -1,6 +1,3 @@
-
-/* Estilos para la página principal (Home) */
-
 body {
   font-family: "poppins", sans-serif;
   margin: 0px;
@@ -52,7 +49,7 @@ nav a:hover {
 }
 
 #hero {
-  height: 90vh; /* Ocupa toda la altura visible de la ventana */
+  height: 100vh; /* Ocupa toda la altura visible de la ventana */
   background-image: url("../imagenes/portada.jpg"); 
   background-size: cover; /* La imagen cubre todo el área sin distorsionarse */
   background-position: center; /* Centra la imagen en el contenedor */
@@ -61,7 +58,6 @@ nav a:hover {
   justify-content: center; /* Centra el contenido horizontalmente */
   text-align: center; /* Centra el texto de los elementos hijos */
   color: white; 
-  background-attachment: fixed;
 }
 
 .btn {
@@ -146,9 +142,6 @@ p {
   background: whitesmoke;
   border-radius: 15px;
   margin: 50px; 
-  width: 90%; /* Ocupará el 90% del ancho del navegador */
-  max-width: 1200px; 
-  margin: 0 auto;
 }
 
 .targeta {
@@ -222,11 +215,12 @@ footer {
     flex-direction: row;
     justify-content: space-around ;
     align-items: center;
-
-    color: aliceblue;
-
+    color: rgb(255, 255, 255);
     background-color: #641d1d;
+}
 
+footer p{
+  color: white;
 }
 
 #contacto {
