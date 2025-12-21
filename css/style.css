@@ -184,16 +184,13 @@ h1 {
   margin: 0;
   padding: 3% 65% 3% 0;
   font-size: 40px;
-  color: var(--blanco-puro);  
   letter-spacing: 0.5px;
   background: linear-gradient(135deg, 
     rgba(107, 15, 26, 0.98) 0%, 
     rgba(139, 20, 52, 0.96) 50%,
-    rgba(75, 10, 20, 0.98) 100%);
+    rgba(75, 10, 20, 0.98) 100%) !important;; 
   backdrop-filter: blur(10px);
-  box-shadow: 
-    0 8px 32px rgba(107, 15, 26, 0.5),
-    0 2px 8px rgba(0, 0, 0, 0.3);
+  -webkit-text-fill-color: var(--blanco-puro) !important;
 }
 
 #bienvenida {
@@ -239,43 +236,90 @@ p {
 }
 
 #presentacionDestinos {
-  text-align: center;
-  margin: 7% 0 10px 0;
+    padding: 40px 0;
 }
 
-.galeria {
-  display: flex; 
-  flex-wrap: wrap; /* Permite que bajen si no caben */
-  justify-content: center; /* Centra horizontalmente */
-  gap: 25px; /* Espacio entre cuadros */
-  padding: 4% 0;
-  background: whitesmoke;
-  border-radius: 15px;
-  margin: 50px; 
-}
-
-.targeta {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  text-align: center;
-  transition: transform 0.3s ease; /* La propiedad transform será animada*/
-  width: 250px; /* Tamaño fijo (ajustable) */
-}
-
-.targeta:hover {
-  transform: scale(1.05); /* Efecto al pasar el mouse */
-}
-
-.targeta img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover; /* Evita deformaciones */
+#presentacionDestinos h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .targeta p {
   padding: 10px;
   color: #333;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap; /* Permite que bajen si no caben */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 4% 0;
+    background: whitesmoke;
+    border-radius: 15px;
+    gap: 20px;
+    width: 100%; 
+    max-width: 1400px; /* Ancho máximo del contenedor */
+    margin: 4% auto 0 auto;
+    overflow: hidden; /* Oculta lo que se sale del contenedor */
+    position: relative;
+}
+
+.galeria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.galeria-track {
+    display: flex;
+    gap: 20px;
+    animation: scrollInfinito 20s linear infinite;
+    width: max-content;
+    will-change: transform;
+}
+
+.galeria-track:hover {
+    animation-play-state: paused;
+}
+
+.targeta {
+    flex-shrink: 0;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.targeta:hover {
+    transform: translateY(-10px);
+}
+
+.targeta img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.targeta p {
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+@keyframes scrollInfinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-320px * 5));
+    }
 }
 
 .recomendaciones {
