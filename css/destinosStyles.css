@@ -1,6 +1,17 @@
 
 /* Estilos para la página "Destinos" */
 
+:root {
+  --vino-profundo: #6B0F1A;
+  --rojo-burdeos: #8B1434;
+  --rosa-polvo: #B8828E;
+  --dorado-champagne: #C9A77C;
+  --gris-carbon: #2C2C34;
+  --crema-marfil: #FAF7F2;
+  --blanco-puro: #FFFFFF;
+  --rojo-intenso: #9B1C31;
+}
+
 body {
     margin: 0px;
     padding: 0%;
@@ -80,21 +91,6 @@ nav a:hover {
   color: white;
 }
 
-.btn {
-  background-color: #631515;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #ffffff;
-    color: black;
-}
-
 #destinosTitulo {
     text-align: center;
     font-weight: bold;
@@ -118,22 +114,6 @@ section {
     padding: 7px;
 }
 
-h2 {
-    font-size: 28px;
-    color: #631515;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 0.5px; 
-    padding: 0 0 0 18px;
-}
-
-h3, h4 {
-    color: #631515;
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    margin: 18px;
-    letter-spacing: 0.3px; 
-}
-
 p, ul {
     color: rgba(28, 74, 114, 0.635);
     font-size: 18px;
@@ -155,7 +135,7 @@ footer {
 
 }
 
-footer p{
+footer p {
   color: white;
   
 }
@@ -164,22 +144,213 @@ footer p{
     color: white;
 }
 
-.destinos-contenido {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* 2/3 texto - 1/3 imagen */
-    gap: 35px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    align-items: start; /* Alinea los elementos al inicio vertical (parte superior) del grid */
+/* Carrusel de Destinos */
+.carrusel-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 0 60px;
 }
 
-/* Columna derecha (imagen) */
+.carrusel-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(107, 15, 26, 0.3);
+    background: var(--blanco-puro);
+    min-height: 450px; /* Altura mínima fija */
+}
+
+.carrusel-slide {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.carrusel-slide.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.destinos-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+    align-items: start;
+    height: 450px; /* ← Altura fija igual a la imagen */
+}
+
+.destinos-info {
+    height: 100%; /* Ocupa toda la altura disponible */
+    overflow-y: auto; /* Scroll vertical si el contenido es muy largo */
+    padding-right: 40px; /* Espacio para la scrollbar */
+}
+
+.destinos-info h2 {
+    color: var(--vino-profundo);
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--rojo-burdeos);
+    padding-bottom: 10px;
+}
+
+.destinos-info h3 {
+    color: var(--rojo-burdeos);
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+}
+
+.destinos-info h4 {
+    color: var(--vino-profundo);
+    font-size: 18px;
+    margin: 15px 0 8px 0;
+}
+
+.destinos-info p {
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--gris-carbon);
+}
+
+.destinos-info ul {
+    margin: 10px 0;
+    padding-left: 60px;
+}
+
+.destinos-info li {
+    margin: 8px 0;
+    color: var(--gris-carbon);
+}
+
+.destinos-imagen {
+    height: 100%; /* Ocupa toda la altura del grid */
+    display: flex;
+    align-items: center;
+}
+
 .destinos-imagen img {
     width: 100%;
-    height: 750px;
+    height: 450px; /* ← Altura fija igual al contenedor */
+    object-fit: cover;
     border-radius: 15px;
-    object-fit: cover; /* La imagen se recorta para llenar el espacio sin deformarse */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    margin: 30px 0 10% 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.destinos-imagen img:hover {
+    transform: scale(1.02);
+}
+
+/* Botones de navegación */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, var(--rojo-burdeos) 0%, var(--vino-profundo) 100%);
+    color: var(--blanco-puro);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(107, 15, 26, 0.4);
+    transition: all 0.3s ease;
+}
+
+.carrusel-btn:hover {
+    background: linear-gradient(135deg, var(--dorado-champagne) 0%, var(--rosa-polvo) 100%);
+    color: var(--vino-profundo);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(201, 167, 124, 0.5);
+}
+
+.carrusel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.btn-anterior {
+    left: 0;
+}
+
+.btn-siguiente {
+    right: 0;
+}
+
+/* Indicadores */
+.carrusel-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--rosa-polvo);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicador:hover {
+    background: var(--rojo-burdeos);
+    transform: scale(1.2);
+}
+
+.indicador.active {
+    background: var(--vino-profundo);
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .destinos-contenido {
+        grid-template-columns: 1fr;
+    }
+    
+    .destinos-imagen {
+        position: relative;
+        top: 0;
+    }
+    
+    .destinos-imagen img {
+        height: 400px;
+    }
+    
+    .carrusel-container {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .carrusel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .carrusel-container {
+        padding: 0 45px;
+    }
+    
+    .destinos-contenido {
+        padding: 20px;
+    }
+    
+    .destinos-info h2 {
+        font-size: 22px;
+    }
 }
