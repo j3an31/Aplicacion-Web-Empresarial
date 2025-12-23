@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos | MistiTours</title>
+    <link rel="stylesheet" href="/static/css/base.css"> 
+    <link rel="stylesheet" href="/static/css/destinosStyles.css">
+    <link rel="icon" href="/static/imagenes/logo_blanco.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{url_for('index')}}">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="{{url_for('index')}}">Inicio</a>
+            <a href="{{url_for('nosotros')}}">Nosotros</a>
+            <a href="{{url_for('transporte')}}">Transportes</a>
+            <a href="{{url_for('destinos')}}">Destinos</a>
+            <a href="{{url_for('contacto')}}">Contacto</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="destinos-hero">
+            <div class="hero-overlay">
+                <div class="container text-center">
+                    <h1>Explora Arequipa</h1>
+                    <p class="lead-text">Elige tu próxima aventura entre volcanes, cañones y lagunas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-section container">
+            
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/cola_mirador2.png" alt="Colca">
+                    <span class="card-price">S/ 60.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag">Más Popular</span>
+                    <h3>Cañón del Colca</h3>
+                    <p class="short-desc">Un día completo visitando la Cruz del Cóndor, pueblos tradicionales y aguas termales.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 14h</span>
+                        <span><i class="material-icons-round">star</i> 4.9</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-colca">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/rutaSillar.jpg" alt="Sillar">
+                    <span class="card-price">S/ 35.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-blue">Cultural</span>
+                    <h3>Ruta del Sillar</h3>
+                    <p class="short-desc">Descubre el origen de la Ciudad Blanca, tallado en vivo y el cañón de Culebrillas.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 4h</span>
+                        <span><i class="material-icons-round">star</i> 5.0</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-sillar">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/cascada.jpg" alt="Pillones">
+                    <span class="card-price">S/ 70.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-green">Aventura</span>
+                    <h3>Catarata de Pillones</h3>
+                    <p class="short-desc">Aventura entre rocas volcánicas, cataratas y bosques de piedra en Imata.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 9h</span>
+                        <span><i class="material-icons-round">star</i> 4.5</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-pillones">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/cascada.jpg" alt="Salinas">
+                    <span class="card-price">S/ 55.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-purple">Paisajístico</span>
+                    <h3>Laguna de Salinas</h3>
+                    <p class="short-desc">Espejos de agua, flamencos y la inmensidad del salar bajo los volcanes.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 8h</span>
+                        <span><i class="material-icons-round">star</i> 4.8</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-salinas">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/carmenalto1.jpg" alt="Mirabus Campiña">
+                    <span class="card-price">S/ 40.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-blue">Tradicional</span>
+                    <h3>Tour Campiña (Mirabus)</h3>
+                    <p class="short-desc">Recorrido panorámico por los miradores de Yanahuara, Carmen Alto y la Mansión del Fundador.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 4h</span>
+                        <span><i class="material-icons-round">star</i> 4.7</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-campina">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/rafting_chili.jpg" alt="Rafting Chili">
+                    <span class="card-price">S/ 65.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-green">Adrenalina</span>
+                    <h3>Rafting Río Chili</h3>
+                    <p class="short-desc">Desciende los rápidos del río Chili a solo 20 minutos de la ciudad. Aventura pura.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> 3h</span>
+                        <span><i class="material-icons-round">star</i> 4.9</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-rafting">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/ascenso_misti.jpg" alt="Volcán Misti">
+                    <span class="card-price">S/ 250.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-purple">Trekking Extremo</span>
+                    <h3>Ascenso al Misti</h3>
+                    <p class="short-desc">Conquista la cima del guardián de Arequipa a 5,825 msnm. Una experiencia inolvidable.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">calendar_today</i> 2 Días</span>
+                        <span><i class="material-icons-round">star</i> 5.0</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-misti">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+            <div class="card-destino">
+                <div class="card-image">
+                    <img src="/static/imagenes/toro_muerto.jpg" alt="Toro Muerto">
+                    <span class="card-price">S/ 90.00</span>
+                </div>
+                <div class="card-content">
+                    <span class="tag tag-blue">Arqueología</span>
+                    <h3>Toro Muerto y Querulpa</h3>
+                    <p class="short-desc">Visita los petroglifos más grandes del mundo y las huellas de dinosaurios en Querulpa.</p>
+                    <div class="card-stats">
+                        <span><i class="material-icons-round">schedule</i> Full Day</span>
+                        <span><i class="material-icons-round">star</i> 4.6</span>
+                    </div>
+                    <button class="btn-ver-detalle" data-modal="modal-toromuerto">Ver Itinerario Completo</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="modal-colca" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Tour Colca Full Day</h2>
+                <p>Naturaleza y Cultura Viva</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">05:30 am</span> <p>Recojo y viaje a Chivay.</p></div>
+                    <div class="timeline-item"><span class="time">11:00 am</span> <p>Mirador Cruz del Cóndor.</p></div>
+                    <div class="timeline-item"><span class="time">01:00 pm</span> <p>Baños termales y almuerzo.</p></div>
+                    <div class="timeline-item"><span class="time">07:00 pm</span> <p>Retorno a Arequipa.</p></div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h4>Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round check">check</i> Transporte</li>
+                            <li><i class="material-icons-round check">check</i> Desayuno</li>
+                            <li><i class="material-icons-round check">check</i> Guía</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>No Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round cross">close</i> Boleto Turístico</li>
+                            <li><i class="material-icons-round cross">close</i> Almuerzo</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20deseo%20reservar%20Colca" class="btn-whatsapp" target="_blank">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sillar" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Ruta del Sillar</h2>
+                <p>Cultura y Tradición</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="icon">⛰️</span> <p>Canteras de Añashuayco.</p></div>
+                    <div class="timeline-item"><span class="icon">⚒️</span> <p>Demostración de tallado.</p></div>
+                    <div class="timeline-item"><span class="icon">🚶</span> <p>Caminata Culebrillas.</p></div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h4>Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round check">check</i> Movilidad</li>
+                            <li><i class="material-icons-round check">check</i> Guía</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>No Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round cross">close</i> Entradas (S/ 10)</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20deseo%20reservar%20Sillar" class="btn-whatsapp" target="_blank">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-pillones" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Catarata de Pillones</h2>
+                <p>Aventura y Paisaje</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">06:00 am</span> <p>Salida hacia Imata.</p></div>
+                    <div class="timeline-item"><span class="time">08:00 am</span> <p>Caminata a la catarata.</p></div>
+                    <div class="timeline-item"><span class="time">11:00 am</span> <p>Bosque de Piedras.</p></div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20deseo%20reservar%20Pillones" class="btn-whatsapp" target="_blank">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-salinas" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Laguna de Salinas</h2>
+                <p>Naturaleza</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">06:00 am</span> <p>Salida a Chiguata.</p></div>
+                    <div class="timeline-item"><span class="time">10:00 am</span> <p>Avistamiento Flamencos.</p></div>
+                    <div class="timeline-item"><span class="time">02:00 pm</span> <p>Retorno.</p></div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20deseo%20reservar%20Salinas" class="btn-whatsapp" target="_blank">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-campina" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Tour Campiña (Mirabus)</h2>
+                <p>Tradición y Paisajes</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">09:00 am</span> <p>Mirador de Yanahuara.</p></div>
+                    <div class="timeline-item"><span class="time">10:00 am</span> <p>Mirador de Carmen Alto.</p></div>
+                    <div class="timeline-item"><span class="time">11:00 am</span> <p>Mansión del Fundador.</p></div>
+                    <div class="timeline-item"><span class="time">12:00 pm</span> <p>Molino de Sabandía.</p></div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h4>Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round check">check</i> Transporte Panorámico</li>
+                            <li><i class="material-icons-round check">check</i> Guía Animador</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>No Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round cross">close</i> Entradas (S/ 15 aprox)</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20info%20Campiña" class="btn-whatsapp" target="_blank">Reservar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-rafting" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Rafting Río Chili</h2>
+                <p>Aventura</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">00:00</span> <p>Recojo del hotel.</p></div>
+                    <div class="timeline-item"><span class="time">00:40</span> <p>Charla de seguridad y equipos.</p></div>
+                    <div class="timeline-item"><span class="time">01:30</span> <p>Descenso de rápidos (Clase II, III, IV).</p></div>
+                    <div class="timeline-item"><span class="time">03:00</span> <p>Retorno a la base y snack.</p></div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h4>Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round check">check</i> Equipo completo</li>
+                            <li><i class="material-icons-round check">check</i> Guía Rescatista</li>
+                            <li><i class="material-icons-round check">check</i> Snack y Agua</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20info%20Rafting" class="btn-whatsapp" target="_blank">Reservar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-misti" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Ascenso al Misti (2 Días)</h2>
+                <p>Trekking de Alta Montaña</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">Día 1</span> <p>08:00 am Salida. Caminata al Campo Base (4,600 msnm).</p></div>
+                    <div class="timeline-item"><span class="time">Día 2</span> <p>02:00 am Ascenso a la cumbre (5,825 msnm).</p></div>
+                    <div class="timeline-item"><span class="time">Día 2</span> <p>01:00 pm Retorno a Arequipa.</p></div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h4>Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round check">check</i> Transporte 4x4</li>
+                            <li><i class="material-icons-round check">check</i> Equipo Camping</li>
+                            <li><i class="material-icons-round check">check</i> Alimentación</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>No Incluye</h4>
+                        <ul>
+                            <li><i class="material-icons-round cross">close</i> Porteador personal</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20info%20Misti" class="btn-whatsapp" target="_blank">Reservar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-toromuerto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Toro Muerto y Querulpa</h2>
+                <p>Historia Prehispánica</p>
+            </div>
+            <div class="modal-body">
+                <div class="timeline">
+                    <div class="timeline-item"><span class="time">06:00 am</span> <p>Salida al Valle de Majes.</p></div>
+                    <div class="timeline-item"><span class="time">10:00 am</span> <p>Petroglifos de Toro Muerto.</p></div>
+                    <div class="timeline-item"><span class="time">01:00 pm</span> <p>Almuerzo de camarones (Opcional).</p></div>
+                    <div class="timeline-item"><span class="time">03:00 pm</span> <p>Huellas de dinosaurios Querulpa.</p></div>
+                </div>
+                <a href="https://wa.me/51123456789?text=Hola,%20info%20Toro%20Muerto" class="btn-whatsapp" target="_blank">Reservar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-marcadeagua">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo-footer">
+            </div>
+
+            <div class="footer-informacion">
+                <p>&copy; 2025 MistiTours | Todos los derechos reservados.</p>    
+                <p><a href="{{url_for('contacto')}}" id="contacto">Contacto</a></p>        
+                <p>Telefono: +51 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/destinos.js"></script>
+</body>
+</html>

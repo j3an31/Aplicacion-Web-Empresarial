@@ -1,0 +1,157 @@
+/* =========================================
+   ESTILOS ESPECÍFICOS DEL INICIO (INDEX)
+   ========================================= */
+
+/* 1. HERO SECTION */
+#hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 26, 51, 0.7)), 
+              url('/static/imagenes/portada.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+  position: relative;
+}
+
+#hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+#hero p {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  color: var(--blanco-sillar);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* 2. SECCIONES DE CONTENIDO */
+#bienvenida {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+#presentacion {
+  background: var(--color-primario);
+  color: white;
+  padding: 2rem;
+  margin: 0;
+  -webkit-text-fill-color: white;
+}
+
+.welcome-text {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.welcome-text p {
+  font-size: 1.1rem;
+  color: var(--texto-oscuro);
+}
+
+/* 3. GALERÍA DE DESTINOS */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.targeta {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-bottom: 4px solid transparent; 
+}
+
+.targeta:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 40px rgba(0, 51, 102, 0.2);
+  border-bottom-color: var(--color-secundario);
+}
+
+.targeta img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.targeta:hover img {
+  transform: scale(1.05);
+}
+
+.targeta p {
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-primario);
+  margin: 0;
+}
+
+.targeta-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Para que ocupe el espacio */
+}
+
+/* 4. RECOMENDACIONES */
+#recomendaciones {
+  padding: 4rem 1rem;
+  background-color: #f4f6f8; 
+}
+
+#consejo {
+  text-align: center;
+}
+
+#tips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tip {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  border-top: 5px solid var(--color-secundario);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.tip:hover {
+  transform: translateY(-5px);
+}
+
+.tip h3 {
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.tip p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+  #hero {
+    height: 60vh;
+  }
+}

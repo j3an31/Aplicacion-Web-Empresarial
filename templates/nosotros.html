@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | MistiTours</title>
+  <link rel="stylesheet" href="/static/css/base.css"> 
+  <link rel="stylesheet" href="/static/css/nosotrosStyle.css">
+
+  <link rel="icon" href="/static/imagenes/logo_blanco.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{url_for('index')}}">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="{{url_for('index')}}">Inicio</a>
+            <a href="{{url_for('nosotros')}}">Nosotros</a>
+            <a href="{{url_for('transporte')}}">Transportes</a>
+            <a href="{{url_for('destinos')}}">Destinos</a>
+            <a href="{{url_for('contacto')}}">Contacto</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero-nosotros">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Descubre Arequipa con MistiTours</h1>
+                    <p class="lead-text">
+                        Somos una agencia local dedicada a crear recuerdos inolvidables en la Ciudad Blanca.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-description container">
+            <div class="text-block">
+                <h2>Nuestra Historia</h2>
+                <p>
+                    En <strong>MistiTours</strong>, nuestro viaje comenzó con una simple pasión: compartir la magia de Arequipa con el mundo. Nuestro equipo está conformado por guías locales expertos, enamorados de los encantos naturales, la rica historia y la inigualable gastronomía de nuestra tierra.
+                </p>
+                <p>
+                    Más que una agencia de viajes, somos tus anfitriones en el sur del Perú. Nos especializamos en conectar a los viajeros con la cultura viva, asegurando que cada tour sea una experiencia auténtica y personal.
+                </p>
+            </div>
+            <div class="image-block">
+                <img src="/static/imagenes/equipo-misti.jpg" alt="Equipo de MistiTours en el mirador de Yanahuara" onerror="this.style.display='none'">
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2>¿Por qué elegirnos?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="material-icons-outlined icon">verified</span>
+                        <h3>Seguridad y Confianza</h3>
+                        <p>Tu bienestar es nuestra prioridad. Operamos con los más altos estándares de seguridad y transporte moderno.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons-outlined icon">schedule</span>
+                        <h3>Puntualidad</h3>
+                        <p>Respetamos tu tiempo. Nuestros itinerarios están planificados para aprovechar al máximo cada minuto de tu viaje.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons-outlined icon">nature_people</span>
+                        <h3>Turismo Responsable</h3>
+                        <p>Promovemos un turismo sostenible que respeta el medio ambiente y apoya a las comunidades locales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-marcadeagua">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo-footer">
+            </div>
+
+            <div class="footer-informacion">
+                <p>&copy; 2025 MistiTours | Todos los derechos reservados.</p>    
+                <p><a href="{{url_for('contacto')}}" id="contacto">Contacto</a></p>        
+                <p>Telefono: +51 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

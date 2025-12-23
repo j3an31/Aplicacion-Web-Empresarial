@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Flota | MistiTours</title>
+    
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/transportestyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <link rel="icon" href="/static/imagenes/logo_blanco.png">
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo-container">
+            <a href="{{url_for('index')}}">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="{{url_for('index')}}">Inicio</a>
+            <a href="{{url_for('nosotros')}}">Nosotros</a>
+            <a href="{{url_for('transporte')}}">Transportes</a>
+            <a href="{{url_for('destinos')}}">Destinos</a>
+            <a href="{{url_for('contacto')}}">Contacto</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section id="hero-transporte">
+            <div class="hero-content">
+                <h1>Viaja Seguro y Cómodo</h1>
+                <p>Flota moderna para turismo, traslados privados y corporativos en Arequipa.</p>
+            </div>
+        </section>
+
+        <section class="container intro-section">
+            <h2 class="section-title">Nuestra Calidad de Servicio</h2>
+            <p class="texto-intro">
+                En MistiTours entendemos que el viaje es tan importante como el destino. 
+                Por eso, contamos con una flota moderna y revisada técnicamente para garantizar 
+                tu seguridad en las rutas de Arequipa y el sur del Perú.
+            </p>
+
+            <div class="caracteristicas-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Conductores Expertos</h3>
+                    <p>Profesionales calificados con amplia experiencia en rutas turísticas y carreteras andinas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-snowflake"></i>
+                    <h3>Confort Total</h3>
+                    <p>Todas nuestras unidades cuentan con aire acondicionado, asientos reclinables y calefacción.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <h3>Seguridad</h3>
+                    <p>Equipados con botiquín de primeros auxilios, oxígeno, monitoreo GPS y SOAT turístico vigente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flota-section">
+            <div class="container">
+                <h2 class="section-title">Conoce Nuestra Flota</h2>
+
+                <article class="categoria-flota">
+                    <div class="categoria-texto">
+                        <h3>Transporte Privado y Ejecutivo</h3>
+                        <p>Ideal para parejas, familias pequeñas o viajes de negocios. Privacidad y rapidez garantizada.</p>
+                    </div>
+                    <div class="flota-grid">
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/carro.png" alt="Auto Sedán">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Auto Sedán</h4>
+                                <ul>
+                                    <li>Capacidad: 1-3 Pasajeros</li>
+                                    <li>Aire Acondicionado</li>
+                                    <li>Maletera Amplia</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/camioneta.png" alt="Camioneta SUV 4x4">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Camioneta SUV 4x4</h4>
+                                <ul>
+                                    <li>Capacidad: 1-4 Pasajeros</li>
+                                    <li>Ideal para terrenos difíciles</li>
+                                    <li>Máximo confort</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <hr class="separador">
+
+                <article class="categoria-flota">
+                    <div class="categoria-texto">
+                        <h3>Para Grupos y Familias</h3>
+                        <p>Espacio perfecto para grupos de amigos o familias extendidas. Viaja con comodidad sin separarte de tu grupo.</p>
+                    </div>
+                    <div class="flota-grid">
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/Karry-Q22.png" alt="Minivan Karry">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Minivan H1 / Karry</h4>
+                                <ul>
+                                    <li>Capacidad: 5-10 Pasajeros</li>
+                                    <li>Asientos reclinables</li>
+                                    <li>Audio y video a bordo</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/granVan.png" alt="Changan Grand Van">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Grand Van Turismo</h4>
+                                <ul>
+                                    <li>Capacidad: 11-14 Pasajeros</li>
+                                    <li>Techo alto panorámico</li>
+                                    <li>Amplio espacio entre asientos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <hr class="separador">
+
+                <article class="categoria-flota">
+                    <div class="categoria-texto">
+                        <h3>Delegaciones y Turismo Masivo</h3>
+                        <p>Soluciones logísticas para promociones escolares, excursiones corporativas o grandes grupos turísticos.</p>
+                    </div>
+                    <div class="flota-grid">
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/vanturista.png" alt="Renault Master / Sprinter">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Minibus Sprinter / Master</h4>
+                                <ul>
+                                    <li>Capacidad: 15-19 Pasajeros</li>
+                                    <li>Pantalla TV / Micrófono</li>
+                                    <li>Portaequipaje superior</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-carro">
+                            <div class="img-wrapper">
+                                <img src="/static/imagenes/imagenes_transporte/imagenes_carros/nissanG.png" alt="Nissan NV350">
+                            </div>
+                            <div class="info-carro">
+                                <h4>Nissan NV350 Urvan</h4>
+                                <ul>
+                                    <li>Capacidad: 15 Pasajeros</li>
+                                    <li>Seguridad reforzada</li>
+                                    <li>Ideal rutas largas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <h2>¿Necesitas un transporte personalizado?</h2>
+            <p>Cotiza tu traslado al aeropuerto, hotel o tour privado ahora mismo.</p>
+            <a href="{{url_for('contacto')}}" class="btn">Cotizar Ahora</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-marcadeagua">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo-footer">
+            </div>
+
+            <div class="footer-informacion">
+                <p>&copy; 2025 MistiTours | Todos los derechos reservados.</p>    
+                <p><a href="contacto.html">Contacto</a></p>        
+                <p>Teléfono: +51 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
