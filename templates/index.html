@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaja por Arequipa | MistiTours</title>
+    <link rel="stylesheet" href="/static/css/base.css"> 
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+    <link rel="icon" href="imagenes/logo_blanco.png">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{url_for('index')}}">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="{{url_for('index')}}">Inicio</a>
+            <a href="{{url_for('nosotros')}}">Nosotros</a>
+            <a href="{{url_for('transporte')}}">Transportes</a>
+            <a href="{{url_for('destinos')}}">Destinos</a>
+            <a href="{{url_for('contacto')}}">Contacto</a>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Arequipa</h1>
+            <p class="hero-sub">Bienvenido a la Ciudad Blanca</p>
+            <a href="{{url_for('index')}}#presentacionDestinos" class="btn">Saber Más</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section-title">
+            <h2 id="presentacion">Somos MistiTours</h2>
+        </section>
+
+        <section id="bienvenida" class="container-principal-content">
+            <h2 class="welcome-title"><strong>Bienvenidos</strong></h2>
+            <div class="welcome-text">
+                <p> 
+                    MistiTours se complace en presentarles nuestros Paquetes Turísticos en el sur del país. <br>
+                    La amplia experiencia y calidez humana distingue y soporta la profesionalidad <br>
+                    y calidad de nuestros servicios en la conducción de nuestros procesos internos <br>
+                    y grupos de turismo receptivo de la región y sur del país. 
+                </p>
+            </div>
+        </section>
+
+        <section id="presentacionDestinos" class="container-principal-content">
+            <h2 class="section-title"><strong>Nuestros Destinos</strong></h2>
+            <div class="galeria">
+                <div class="galeria-track">
+                    <a href="{{url_for('destinos')}}?tour=modal-colca" class="targeta-link">
+                        <div class="targeta">
+                            <img src="/static/imagenes/colca.jpg" alt="Cañon del Colca">
+                            <div class="targeta-overlay"><p>Tour a Cañon del Colca</p></div>
+                        </div>
+                    </a>
+
+                    <a href="{{url_for('destinos')}}?tour=modal-sillar" class="targeta-link">
+                        <div class="targeta">
+                            <img src="https://www.chakutravel.com/images/arequipa/sillar/sillar9.jpg" alt="Ruta del Sillar">
+                            <div class="targeta-overlay"><p>Tour Ruta del Sillar</p></div>
+                        </div>
+                    </a>
+
+                    <a href="{{url_for('destinos')}}?tour=modal-pillones" class="targeta-link">
+                        <div class="targeta">
+                            <img src="https://www.chakutravel.com/images/arequipa/pillones/cataratas1.jpg" alt="Cataratas de Pillones">
+                            <div class="targeta-overlay"><p>Tour Cataratas de Pillones</p></div>
+                        </div>
+                    </a>
+
+                    <a href="{{url_for('destinos')}}?tour=modal-salinas" class="targeta-link">
+                        <div class="targeta">
+                            <img src="https://www.chakutravel.com/images/arequipa/salinas/bano1.jpeg" alt="Laguna de Salinas">
+                            <div class="targeta-overlay"><p>Tour Laguna de Salinas</p></div>
+                        </div>
+                    </a>
+
+                    <a href="{{url_for('destinos')}}" class="targeta-link">
+                        <div class="targeta">
+                            <img src="https://www.chakutravel.com/images/arequipa/campina/carmenalto1.jpg" alt="Bus Campiña">
+                            <div class="targeta-overlay"><p>Tour Bus Campiña</p></div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section id="recomendaciones" class="container-principal-content">
+            <h2 class="section-title"><strong>Recomendaciones</strong></h2>
+            <div id="consejo">
+                <p> Antes de viajar con nuestro servicio, ten en cuenta lo siguiente: </p>
+            </div>
+            <div id="tips-container">
+                <article class="tip">
+                    <h3>1. Ropa Adecuada</h3>
+                    <p>Arequipa tiene un clima variado, Durante el día el clima es cálido, pero por la noche puede hacer frío. Empaca una casaca ligera y protector solar.</p>
+                </article>
+
+                <article class="tip">
+                    <h3>2. Cuidado con la altitud</h3>
+                    <p>La altitud de Arequipa puede afectar a algunas personas. Bebe mucha agua para mantenerte hidratado y evitar el mal de altura.</p>
+                </article>
+
+                <article class="tip">
+                    <h3>3. Consuma comida Local</h3>
+                    <p>Arequipa es famosa por su deliciosa gastronomía. No te pierdas la oportunidad de probar platos típicos como el rocoto relleno y la ocopa arequipeña.</p>
+                </article>
+
+                <article class="tip">
+                    <h3>4. Seguridad</h3>
+                    <p>Arequipa es generalmente segura para los turistas, pero siempre es bueno estar atento a tus pertenencias y evitar zonas poco iluminadas por la noche.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-marcadeagua">
+                <img src="/static/imagenes/logo_blanco.png" alt="Logo de MistiTours" class="logo-footer">
+            </div>
+
+            <div class="footer-informacion">
+                <p>&copy; 2025 MistiTours | Todos los derechos reservados.</p>    
+                <p><a href="{{url_for('contacto')}}" id="contacto">Contacto</a></p>        
+                <p>Telefono: +51 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

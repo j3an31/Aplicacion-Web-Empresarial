@@ -1,0 +1,207 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================= */
+:root {
+  /* Paleta Arequipa Vibrante */
+  --color-primario: #003366;      /* Azul Profundo */
+  --color-primario-dark: #001a33; /* Azul más oscuro para degradados */
+  --color-secundario: #FF6600;    /* Naranja Misti */
+  --color-secundario-light: #ff8533;
+  --blanco-sillar: #F8F9FA;
+  --texto-oscuro: #2D3436;
+  --texto-suave: #636e72;
+  
+  /* Efectos y Sombras (Recuperados) */
+  --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --sombra-fuerte: 0 8px 32px rgba(0, 51, 102, 0.25);
+  --transicion-suave: all 0.3s ease;
+  --transicion-rebote: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--blanco-sillar);
+  /* Fondo sutilmente texturizado si lo deseas, o color plano */
+  background-image: linear-gradient(to bottom, #ffffff, #f0f2f5);
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El main se expande para empujar el footer abajo si hay poco contenido */
+main {
+  flex: 1;
+}
+
+/* Contenedor Universal */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   2. HEADER (Con animación de Logo)
+   ========================================= */
+header {
+  background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-dark) 100%);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.logo-container {
+  display: inline-block;
+  transition: transform 0.5s ease; /* Animación suave */
+}
+
+/* ANIMACIÓN: El logo hace zoom al pasar el mouse */
+.logo-container:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+.logo {
+  width: clamp(140px, 15vw, 180px);
+  display: block;
+}
+
+/* =========================================
+   3. NAVEGACIÓN (Con animación de botones)
+   ========================================= */
+nav {
+  background: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: var(--sombra-fuerte);
+  backdrop-filter: blur(5px); /* Efecto vidrio si el navegador lo soporta */
+  background: rgba(255, 255, 255, 0.95);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-primario);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: var(--transicion-suave);
+  position: relative;
+}
+
+/* ANIMACIÓN NAV: Elevación + Cambio de Color + Sombra */
+nav a:hover {
+  background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-secundario-light) 100%);
+  color: white;
+  transform: translateY(-4px); /* Se eleva */
+  box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4);
+}
+
+/* =========================================
+   4. FOOTER (Estilizado)
+   ========================================= */
+footer {
+  background: linear-gradient(135deg, var(--color-primario-dark) 0%, #000000 100%);
+  color: white;
+  padding: 3rem 0;
+  margin-top: 4rem;
+  border-top: 4px solid var(--color-secundario);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer-marcadeagua img {
+  width: 150px;
+  filter: brightness(0) invert(1); /* Logo blanco */
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-marcadeagua img:hover {
+  opacity: 1;
+}
+
+.footer-informacion p {
+  margin: 0.5rem 0;
+  color: #e0e0e0;
+}
+
+.footer-informacion a {
+  color: var(--color-secundario);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.footer-informacion a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* =========================================
+   5. COMPONENTES GLOBALES (Botones y Títulos)
+   ========================================= */
+
+/* Títulos de secciones */
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  color: var(--color-primario);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Botones Generales */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-secundario-light) 100%);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: var(--transicion-rebote);
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.05); /* Sube y crece un poco */
+  box-shadow: 0 10px 25px rgba(255, 102, 0, 0.5);
+}
+
+/* Ajustes Responsivos Básicos */
+@media (max-width: 768px) {
+  nav a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
