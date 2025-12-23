@@ -6,6 +6,8 @@
     <title>Contáctanos | MistiTours</title>
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/contactostyle.css">
+    <!-- CSS del Chatbot -->
+    <link rel="stylesheet" href="/static/css/chatbot.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <link rel="icon" href="/static/imagenes/logo_blanco.png">
@@ -105,7 +107,12 @@
                 <p>Teléfono: +51 123 456 789</p>
             </div>
         </div>
-    </footer>   
+    </footer>
+    <!-- HTML del Chatbot -->
+    {% include 'chatbot.html' %}
+
+    <!-- JavaScript del Chatbot -->
+    <script src="/static/js/chatbot.js"></script>
     <script src="/static/js/script.js"></script>
 </body>
 </html>

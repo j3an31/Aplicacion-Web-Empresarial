@@ -1,0 +1,34 @@
+<!-- Ventana del chat (ABIERTA POR DEFECTO) -->
+<div class="chat-window active" id="chatWindow">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <h3>MistiTours Asistente</h3>
+            <span class="chat-status">En línea</span>
+        </div>
+        <button class="chat-close" onclick="toggleChat()" aria-label="Cerrar chat">×</button>
+    </div>
+    
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            ¡Hola! 👋 Soy tu asistente virtual de MistiTours. ¿En qué puedo ayudarte hoy?
+        </div>
+    </div>
+    
+    <div class="chat-input-container">
+        <input 
+            type="text" 
+            id="userInput" 
+            placeholder="Escribe tu mensaje..." 
+            onkeypress="handleKeyPress(event)"
+            autocomplete="off"
+        >
+        <button onclick="sendMessage()" aria-label="Enviar mensaje">
+            <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" alt="Enviar" style="width: 20px; height: 20px;">
+        </button>
+    </div>
+</div>
+
+<!-- Botón flotante para reabrir el chat -->
+<button class="chatbot-button" onclick="toggleChat()" aria-label="Abrir chat de ayuda" id="chatbotButton">
+    <img src="https://cdn-icons-png.flaticon.com/512/2593/2593491.png" alt="Chat" style="width: 30px; height: 30px;">
+</button>
