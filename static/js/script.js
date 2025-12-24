@@ -1,220 +1,203 @@
-console.log("JS de formulario cargado correctamente");
-
-// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.form-reserva');
-    
-    // Verificar que el formulario existe
-    if (!form) {
-        console.warn('Formulario no encontrado en esta página');
-        return;
-    }
 
-    // Crear contenedor para mensajes si no existe
-    let mensajeForm = document.querySelector('#mensaje-formulario');
-    if (!mensajeForm) {
-        mensajeForm = document.createElement('div');
-        mensajeForm.id = 'mensaje-formulario';
-        mensajeForm.style.display = 'none';
-        mensajeForm.style.padding = '1rem';
-        mensajeForm.style.borderRadius = '8px';
-        mensajeForm.style.marginTop = '1rem';
-        mensajeForm.style.textAlign = 'center';
-        mensajeForm.style.fontWeight = 'bold';
-        form.appendChild(mensajeForm);
-    }
+    // Verificar que el formulario existe en la página
+    if (!form) return;
 
-    // Función para crear elemento de error si no existe
-    const crearMensajeError = (input) => {
-        let errorElement = input.parentElement.querySelector('.error-mensaje');
-        if (!errorElement) {
-            errorElement = document.createElement('span');
-            errorElement.className = 'error-mensaje';
-            errorElement.style.color = '#d32f2f';
-            errorElement.style.fontSize = '0.85rem';
-            errorElement.style.marginTop = '0.25rem';
-            errorElement.style.display = 'none';
-            input.parentElement.appendChild(errorElement);
-        }
-        return errorElement;
+    // Referencias a los campos
+    const inputs = {
+        nombre: document.getElementById('nombre'),
+        apellido: document.getElementById('apellido'),
+        email: document.getElementById('email'),
+        telefono: document.getElementById('telefono'),
+        tour: document.getElementById('tour'),
+        movilidad: document.getElementById('movilidad'),
+        fecha: document.getElementById('fecha'),
+        personas: document.getElementById('personas')
     };
 
-    // Utilidades mejoradas
+    // --- FUNCIONES DE UTILIDAD (Mostrar/Limpiar Errores) ---
+
     const mostrarError = (input, mensaje) => {
-        const errorElement = crearMensajeError(input);
+        const padre = input.parentElement;
+        let errorSpan = padre.querySelector('.error-mensaje');
+        
+        // Si no existe el span de error, lo creamos
+        if (!errorSpan) {
+            errorSpan = document.createElement('span');
+            errorSpan.className = 'error-mensaje';
+            errorSpan.style.color = '#d32f2f';
+            errorSpan.style.fontSize = '0.85rem';
+            errorSpan.style.display = 'block';
+            errorSpan.style.marginTop = '5px';
+            padre.appendChild(errorSpan);
+        }
+
         input.style.borderColor = '#d32f2f';
-        errorElement.textContent = mensaje;
-        errorElement.style.display = 'block';
+        input.style.backgroundColor = '#fff5f5';
+        errorSpan.textContent = mensaje;
     };
 
     const limpiarError = (input) => {
-        const errorElement = input.parentElement.querySelector('.error-mensaje');
-        input.style.borderColor = '#e0e0e0';
-        if (errorElement) {
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
+        const padre = input.parentElement;
+        const errorSpan = padre.querySelector('.error-mensaje');
+        
+        input.style.borderColor = '#ccc'; // O el color original de tu CSS
+        input.style.backgroundColor = '#fff';
+        
+        if (errorSpan) {
+            errorSpan.remove();
         }
     };
 
-    // Validaciones individuales
-    const validarNombre = () => {
-        const input = document.querySelector('#nombre');
-        if (!input) return true;
-        
-        if (input.value.trim() === '') {
-            mostrarError(input, 'El nombre es obligatorio');
+    // --- VALIDACIONES ESPECÍFICAS ---
+
+    const validarTexto = (input) => {
+        if (input.value.trim().length < 2) {
+            mostrarError(input, 'Este campo es obligatorio (mín. 2 letras).');
             return false;
         }
         limpiarError(input);
         return true;
     };
 
-    const validarApellido = () => {
-        const input = document.querySelector('#apellido');
-        if (!input) return true;
-        
-        if (input.value.trim() === '') {
-            mostrarError(input, 'El apellido es obligatorio');
-            return false;
-        }
-        limpiarError(input);
-        return true;
-    };
-
-    const validarEmail = () => {
-        const input = document.querySelector('#email');
-        if (!input) return true;
-        
+    const validarEmail = (input) => {
+        // Regex estándar para emails
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!regex.test(input.value)) {
-            mostrarError(input, 'Correo electrónico inválido');
+        if (!regex.test(input.value.trim())) {
+            mostrarError(input, 'Ingresa un correo electrónico válido.');
             return false;
         }
         limpiarError(input);
         return true;
     };
 
-    const validarTelefono = () => {
-        const input = document.querySelector('#telefono');
-        if (!input) return true;
-        
-        if (input.value.trim() !== '' && !/^\+?\d{6,15}$/.test(input.value.replace(/\s/g, ''))) {
-            mostrarError(input, 'Teléfono inválido (6-15 dígitos)');
+    const validarTelefono = (input) => {
+        // Acepta números, espacios y símbolo + (mínimo 7 dígitos)
+        const regex = /^[\d\s+]{7,15}$/;
+        if (input.value.trim() !== '' && !regex.test(input.value.trim())) {
+            mostrarError(input, 'Número inválido (mín. 7 dígitos).');
             return false;
         }
         limpiarError(input);
         return true;
     };
 
-    const validarTour = () => {
-        const input = document.querySelector('#tour');
-        if (!input) return true;
-        
-        if (input.value === '') {
-            mostrarError(input, 'Debes seleccionar un tour');
+    const validarSelect = (input) => {
+        if (input.value === "") {
+            mostrarError(input, 'Por favor, selecciona una opción.');
             return false;
         }
         limpiarError(input);
         return true;
     };
 
-    const validarFecha = () => {
-        const input = document.querySelector('#fecha');
-        if (!input) return true;
+    const validarFecha = (input) => {
+        if (!input.value) {
+            mostrarError(input, 'Selecciona una fecha.');
+            return false;
+        }
         
+        const fechaSeleccionada = new Date(input.value);
         const hoy = new Date();
         hoy.setHours(0, 0, 0, 0);
-        const fechaSeleccionada = new Date(input.value + 'T00:00:00');
-        
-        if (input.value === '') {
-            mostrarError(input, 'La fecha es obligatoria');
-            return false;
-        }
-        
+
         if (fechaSeleccionada < hoy) {
-            mostrarError(input, 'La fecha no puede ser anterior a hoy');
-            return false;
-        }
-        
-        limpiarError(input);
-        return true;
-    };
-
-    const validarPersonas = () => {
-        const input = document.querySelector('#personas');
-        if (!input) return true;
-        
-        const valor = parseInt(input.value);
-        if (isNaN(valor) || valor < 1 || valor > 20) {
-            mostrarError(input, 'Debe ser entre 1 y 20 personas');
+            mostrarError(input, 'La fecha no puede ser en el pasado.');
             return false;
         }
         limpiarError(input);
         return true;
     };
 
-    // Eventos en tiempo real (solo si los elementos existen)
-    const nombre = document.querySelector('#nombre');
-    const apellido = document.querySelector('#apellido');
-    const email = document.querySelector('#email');
-    const telefono = document.querySelector('#telefono');
-    const tour = document.querySelector('#tour');
-    const fecha = document.querySelector('#fecha');
-    const personas = document.querySelector('#personas');
+    // --- VALIDACIÓN CAPACIDAD DEL VEHÍCULO ---
+    const validarCapacidadVehiculo = () => {
+        const inputPersonas = inputs.personas;
+        const inputMovilidad = inputs.movilidad;
+        
+        // Si no hay movilidad seleccionada o personas vacías, no validamos logica compleja aún
+        if (inputMovilidad.value === "" || inputPersonas.value === "") {
+            // Validamos solo que personas no esté vacío
+            if(inputPersonas.value === "") return false;
+            return true;
+        }
 
-    if (nombre) nombre.addEventListener('blur', validarNombre);
-    if (apellido) apellido.addEventListener('blur', validarApellido);
-    if (email) email.addEventListener('blur', validarEmail);
-    if (telefono) telefono.addEventListener('blur', validarTelefono);
-    if (tour) tour.addEventListener('change', validarTour);
-    if (fecha) fecha.addEventListener('change', validarFecha);
-    if (personas) personas.addEventListener('blur', validarPersonas);
+        const numPersonas = parseInt(inputPersonas.value);
+        const opcionSeleccionada = inputMovilidad.options[inputMovilidad.selectedIndex];
+        // Obtenemos el data-max del HTML 
+        const maxCapacidad = parseInt(opcionSeleccionada.getAttribute('data-max'));
 
-    // Submit final
-    form.addEventListener('submit', (e) => {
+        // Validar rango básico
+        if (isNaN(numPersonas) || numPersonas < 1) {
+            mostrarError(inputPersonas, 'Mínimo 1 persona.');
+            return false;
+        }
+
+        // Validar contra la capacidad del auto
+        if (maxCapacidad && numPersonas > maxCapacidad) {
+            mostrarError(inputPersonas, `El vehículo seleccionado solo acepta ${maxCapacidad} pasajeros.`);
+            // También marcamos la movilidad para que el usuario sepa qué cambiar
+            mostrarError(inputMovilidad, 'Capacidad insuficiente para el grupo.');
+            return false;
+        }
+
+        // Todo correcto
+        limpiarError(inputPersonas);
+        limpiarError(inputMovilidad); // Limpiamos ambos por si acaso
+        return true;
+    };
+
+    // --- 3. LISTENERS PARA FEEDBACK EN TIEMPO REAL ---
+    
+    inputs.nombre.addEventListener('blur', () => validarTexto(inputs.nombre));
+    inputs.apellido.addEventListener('blur', () => validarTexto(inputs.apellido));
+    inputs.email.addEventListener('blur', () => validarEmail(inputs.email));
+    inputs.telefono.addEventListener('blur', () => validarTelefono(inputs.telefono));
+    inputs.tour.addEventListener('change', () => validarSelect(inputs.tour));
+    inputs.fecha.addEventListener('change', () => validarFecha(inputs.fecha));
+    
+    // Validar capacidad cuando cambia el vehículo O cuando cambia el número de personas
+    inputs.movilidad.addEventListener('change', validarCapacidadVehiculo);
+    inputs.personas.addEventListener('input', validarCapacidadVehiculo);
+
+    // --- ENVÍO DEL FORMULARIO (SUBMIT) ---
+
+    form.addEventListener('submit', function(e) {
+        // Prevenir el envío automático para validar
         e.preventDefault();
 
-        mensajeForm.style.display = 'none';
+        // Ejecutar todas las validaciones
+        const vNombre = validarTexto(inputs.nombre);
+        const vApellido = validarTexto(inputs.apellido);
+        const vEmail = validarEmail(inputs.email);
+        const vTelefono = validarTelefono(inputs.telefono);
+        const vTour = validarSelect(inputs.tour);
+        const vMovilidad = validarSelect(inputs.movilidad);
+        const vFecha = validarFecha(inputs.fecha);
+        const vCapacidad = validarCapacidadVehiculo();
 
-        // Validar todos los campos
-        const valido = 
-            validarNombre() &&
-            validarApellido() &&
-            validarEmail() &&
-            validarTelefono() &&
-            validarTour() &&
-            validarFecha() &&
-            validarPersonas();
-
-        if (!valido) {
-            mensajeForm.textContent = '⚠️ Por favor corrige los errores antes de continuar';
-            mensajeForm.style.backgroundColor = '#ffebee';
-            mensajeForm.style.color = '#d32f2f';
-            mensajeForm.style.display = 'block';
+        // Verificar si TODO es válido
+        if (vNombre && vApellido && vEmail && vTelefono && vTour && vMovilidad && vFecha && vCapacidad) {
             
-            // Hacer scroll al primer error
-            const primerError = form.querySelector('.error-mensaje[style*="block"]');
+            // OPCIONAL: Mostrar un indicador de carga
+            const btnSubmit = form.querySelector('button[type="submit"]');
+            btnSubmit.textContent = 'Enviando...';
+            btnSubmit.disabled = true;
+
+            console.log('Formulario válido. Enviando POST al backend');
+            
+            form.submit(); 
+            alert("Formulario enviado Exitosamente");
+
+        } else {
+            // Si hay errores, hacemos scroll al primer error
+            const primerError = document.querySelector('.error-mensaje');
             if (primerError) {
                 primerError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-            return;
+            console.warn('Formulario inválido, corrige los errores.');
         }
-
-        // Mensaje de éxito
-        mensajeForm.textContent = '✅ ¡Reserva enviada correctamente! Nos contactaremos contigo pronto.';
-        mensajeForm.style.backgroundColor = '#e8f5e9';
-        mensajeForm.style.color = '#2e7d32';
-        mensajeForm.style.display = 'block';
-
-        // Scroll al mensaje de éxito
-        mensajeForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Resetear formulario después de 2 segundos
-        setTimeout(() => {
-            form.reset();
-            mensajeForm.style.display = 'none';
-        }, 3000);
     });
 
-    console.log('✅ Validación de formulario inicializada');
+    console.log('JS de validación de reserva cargado.');
 });

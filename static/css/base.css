@@ -3,14 +3,14 @@
    ========================================= */
 :root {
   /* Paleta Arequipa Vibrante */
-  --color-primario: #003366;      /* Azul Profundo */
+  --color-primario: #003366; /* Azul Profundo */
   --color-primario-dark: #001a33; /* Azul más oscuro para degradados */
-  --color-secundario: #FF6600;    /* Naranja Misti */
+  --color-secundario: #ff6600; /* Naranja Misti */
   --color-secundario-light: #ff8533;
-  --blanco-sillar: #F8F9FA;
-  --texto-oscuro: #2D3436;
+  --blanco-sillar: #f8f9fa;
+  --texto-oscuro: #2d3436;
   --texto-suave: #636e72;
-  
+
   /* Efectos y Sombras (Recuperados) */
   --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.1);
   --sombra-fuerte: 0 8px 32px rgba(0, 51, 102, 0.25);
@@ -25,7 +25,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--blanco-sillar);
   /* Fondo sutilmente texturizado si lo deseas, o color plano */
   background-image: linear-gradient(to bottom, #ffffff, #f0f2f5);
@@ -52,11 +52,15 @@ main {
    2. HEADER (Con animación de Logo)
    ========================================= */
 header {
-  background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primario) 0%,
+    var(--color-primario-dark) 100%
+  );
   padding: 1rem 0;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 10;
 }
@@ -69,7 +73,7 @@ header {
 /* ANIMACIÓN: El logo hace zoom al pasar el mouse */
 .logo-container:hover {
   transform: scale(1.15);
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
 .logo {
@@ -108,7 +112,11 @@ nav a {
 
 /* ANIMACIÓN NAV: Elevación + Cambio de Color + Sombra */
 nav a:hover {
-  background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-secundario-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-secundario) 0%,
+    var(--color-secundario-light) 100%
+  );
   color: white;
   transform: translateY(-4px); /* Se eleva */
   box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4);
@@ -118,7 +126,11 @@ nav a:hover {
    4. FOOTER (Estilizado)
    ========================================= */
 footer {
-  background: linear-gradient(135deg, var(--color-primario-dark) 0%, #000000 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primario-dark) 0%,
+    #000000 100%
+  );
   color: white;
   padding: 3rem 0;
   margin-top: 4rem;
@@ -172,7 +184,7 @@ footer {
   text-align: center;
   margin: 3rem 0 2rem 0;
   color: var(--color-primario);
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   display: inline-block;
   width: 100%;
@@ -181,7 +193,11 @@ footer {
 /* Botones Generales */
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-secundario-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-secundario) 0%,
+    var(--color-secundario-light) 100%
+  );
   color: white;
   padding: 12px 30px;
   border-radius: 50px;

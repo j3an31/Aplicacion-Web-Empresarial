@@ -37,7 +37,7 @@
             <h2 class="section-title">Reserva tu Aventura</h2>
             
             <div class="form-container">
-                <form action="#" method="post" class="form-reserva">
+                <form action="{{url_for('contacto')}}" method="post" class="form-reserva">
                     <p class="form-intro">Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
 
                     <div class="form-grid">
@@ -64,11 +64,28 @@
                         <div class="form-grupo">
                             <label for="tour">Selecciona tu tour:</label>
                             <select id="tour" name="tour" required>
-                                <option value="">-- Elige un tour --</option>
-                                <option value="colca">Cañón del Colca</option>
+                                <option value="" disabled selected>-- Elige un tour --</option>
+                                <option value="colca">Cañón del Colca (Full Day)</option>
                                 <option value="sillar">Ruta del Sillar</option>
-                                <option value="santacatalina">Monasterio de Santa Catalina</option>
-                                <option value="yanahuara">Mirador de Yanahuara</option>
+                                <option value="pillones">Catarata de Pillones</option>
+                                <option value="salinas">Laguna de Salinas</option>
+                                <option value="campina">Tour Campiña (Mirabus)</option>
+                                <option value="rafting">Rafting Río Chili</option>
+                                <option value="misti">Ascenso al Misti (2 Días)</option>
+                                <option value="toro_muerto">Toro Muerto y Querulpa</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-grupo">
+                            <label for="movilidad">Selecciona movilidad:</label>
+                            <select id="movilidad" name="movilidad" required>
+                                <option value="" disabled selected>-- Elige tu movilidad --</option>
+                                <option value="sedan" data-max="3">Auto Sedán (Máx. 3 pax)</option>
+                                <option value="suv" data-max="4">Camioneta SUV 4x4 (Máx. 4 pax)</option>
+                                <option value="minivan" data-max="10">Minivan H1 / Karry (Máx. 10 pax)</option>
+                                <option value="grandvan" data-max="14">Grand Van Turismo (Máx. 14 pax)</option>
+                                <option value="nissan" data-max="15">Nissan NV350 Urvan (Máx. 15 pax)</option>
+                                <option value="sprinter" data-max="19">Minibus Sprinter / Master (Máx. 19 pax)</option>
                             </select>
                         </div>
 
@@ -95,7 +112,8 @@
             </div>
         </section>
     </main>
-
+    <!-- HTML del Chatbot -->
+    {% include 'chatbot.html' %}
     <footer>
         <div class="footer-container">
             <div class="footer-marcadeagua">
@@ -107,12 +125,13 @@
                 <p>Teléfono: +51 123 456 789</p>
             </div>
         </div>
+        
     </footer>
-    <!-- HTML del Chatbot -->
-    {% include 'chatbot.html' %}
-
+    
+    
     <!-- JavaScript del Chatbot -->
     <script src="/static/js/chatbot.js"></script>
     <script src="/static/js/script.js"></script>
 </body>
 </html>
+

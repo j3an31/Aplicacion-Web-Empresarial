@@ -5,131 +5,131 @@
 /* 1. Fondo de pantalla completa para esta página 
    Sobrescribimos el background del body solo en esta página */
 body {
-    background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.5)), 
-                url('../imagenes/plazadearmas.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Efecto Parallax: la imagen se queda quieta al bajar */
-    min-height: 100vh;
+  background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.5)),
+    url("../imagenes/plazadearmas.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto Parallax: la imagen se queda quieta al bajar */
+  min-height: 100vh;
 }
 
 /* 2. Ajuste del Contenedor Principal */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
 }
 
 /* 3. Contenedor del Formulario (Efecto Vidrio / Glassmorphism) */
 .form-reserva {
-    background: rgba(255, 255, 255, 0.92); /* Blanco translúcido muy legible */
-    backdrop-filter: blur(12px); /* Difuminado del fondo detrás del form */
-    -webkit-backdrop-filter: blur(12px); /* Soporte Safari */
-    
-    padding: 2.5rem 3rem;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 800px; /* Ancho máximo para que no se estire demasiado */
-    
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Sombra profunda */
-    border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.92); /* Blanco translúcido muy legible */
+  backdrop-filter: blur(12px); /* Difuminado del fondo detrás del form */
+  -webkit-backdrop-filter: blur(12px); /* Soporte Safari */
+
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px; /* Ancho máximo para que no se estire demasiado */
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Sombra profunda */
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* 4. Título e Intro dentro del formulario */
 .section-title {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: #ffffff ;
-    /* Las propiedades de fuente y color vienen de base.css */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  /* Las propiedades de fuente y color vienen de base.css */
 }
 
 .form-intro {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
 }
 
 /* 5. Grid System (La magia para la estructura) */
 .form-grid {
-    display: grid;
-    /* Crea columnas automáticas: Mínimo 250px de ancho, si cabe más, se expande */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem; /* Espacio entre columnas y filas */
-    margin-bottom: 1.5rem;
+  display: grid;
+  /* Crea columnas automáticas: Mínimo 250px de ancho, si cabe más, se expande */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; /* Espacio entre columnas y filas */
+  margin-bottom: 1.5rem;
 }
 
 /* 6. Estilos de los Grupos y Campos */
 .form-grupo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-grupo label {
-    font-weight: 600;
-    color: var(--color-primario); /* Azul */
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primario); /* Azul */
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 
 /* Estilo unificado para inputs, selects y textarea */
 .form-grupo input,
 .form-grupo select,
 .form-grupo textarea {
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
-    width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 /* Efecto al hacer clic (Focus) */
 .form-grupo input:focus,
 .form-grupo select:focus,
 .form-grupo textarea:focus {
-    border-color: var(--color-secundario); /* Naranja al escribir */
-    background-color: #fff;
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1); /* Resplandor suave naranja */
+  border-color: var(--color-secundario); /* Naranja al escribir */
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1); /* Resplandor suave naranja */
 }
 
 /* Área de texto (fuera del grid) */
 textarea {
-    resize: vertical; /* Solo permite redimensionar hacia abajo */
-    min-height: 120px;
+  resize: vertical; /* Solo permite redimensionar hacia abajo */
+  min-height: 120px;
 }
 
 /* 7. Botón de Enviar */
 .form-button {
-    text-align: center;
-    margin-top: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .btn-submit {
-    width: 100%;
-    max-width: 400px; /* Que no sea gigante en pantallas grandes */
-    padding: 15px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    /* El degradado y colores ya vienen de la clase .btn en base.css */
+  width: 100%;
+  max-width: 400px; /* Que no sea gigante en pantallas grandes */
+  padding: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* El degradado y colores ya vienen de la clase .btn en base.css */
 }
 
 /* 8. Responsividad (Ajustes para móviles) */
 @media (max-width: 600px) {
-    .form-reserva {
-        padding: 1.5rem; /* Menos relleno en celulares */
-    }
-    
-    .form-grid {
-        gap: 1rem; /* Menos espacio entre inputs */
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
+  .form-reserva {
+    padding: 1.5rem; /* Menos relleno en celulares */
+  }
+
+  .form-grid {
+    gap: 1rem; /* Menos espacio entre inputs */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
 }

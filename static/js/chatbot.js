@@ -1,189 +1,273 @@
-// Función para abrir/cerrar el chat
+/* ==========================================
+   LÓGICA DEL CHATBOT - MISTITOURS
+   ========================================== */
+
+// --- 1. CONFIGURACIÓN VISUAL (Abrir/Cerrar) ---
 function toggleChat() {
     const chatWindow = document.getElementById('chatWindow');
     const chatButton = document.getElementById('chatbotButton');
     
     chatWindow.classList.toggle('active');
     
-    // Mostrar/ocultar el botón flotante
     if (chatWindow.classList.contains('active')) {
         chatButton.style.display = 'none';
+        setTimeout(() => document.getElementById('userInput').focus(), 300);
     } else {
         chatButton.style.display = 'flex';
     }
 }
 
-// Función para enviar mensaje
+// --- 2. ENVÍO DE MENSAJES ---
 function sendMessage() {
     const input = document.getElementById('userInput');
     const message = input.value.trim();
     
     if (message === '') return;
     
-    // Agregar mensaje del usuario
+    // 1. Mensaje del usuario
     addMessage(message, 'user');
     input.value = '';
     
-    // Mostrar indicador de escritura
+    // 2. Indicador de escritura
     showTypingIndicator();
     
-    // Simular respuesta del bot después de un delay
+    // 3. Respuesta del Bot
     setTimeout(() => {
         hideTypingIndicator();
         const botResponse = getBotResponse(message);
         addMessage(botResponse, 'bot');
-    }, 800);
+    }, 700);
 }
 
-// Mostrar indicador de escritura
-function showTypingIndicator() {
-    const messagesContainer = document.getElementById('chatMessages');
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'typing-indicator active';
-    typingDiv.id = 'typingIndicator';
-    typingDiv.innerHTML = '<span></span><span></span><span></span>';
-    messagesContainer.appendChild(typingDiv);
-    scrollToBottom();
+function handleKeyPress(event) {
+    if (event.key === 'Enter') sendMessage();
 }
 
-// Ocultar indicador de escritura
-function hideTypingIndicator() {
-    const typingIndicator = document.getElementById('typingIndicator');
-    if (typingIndicator) {
-        typingIndicator.remove();
-    }
-}
-
-// Función para agregar mensajes al chat
+// --- 3. MANEJO DEL DOM (Agregar HTML al chat) ---
 function addMessage(text, sender) {
     const messagesContainer = document.getElementById('chatMessages');
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}`;
-    messageDiv.textContent = text;
+    
+    // IMPORTANTE: innerHTML permite formato rico (negritas, listas)
+    messageDiv.innerHTML = text; 
+    
     messagesContainer.appendChild(messageDiv);
     scrollToBottom();
 }
 
-// Función para scroll automático
 function scrollToBottom() {
-    const messagesContainer = document.getElementById('chatMessages');
-    setTimeout(() => {
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }, 100);
+    const container = document.getElementById('chatMessages');
+    setTimeout(() => container.scrollTop = container.scrollHeight, 100);
 }
 
-// Función para manejar Enter
-function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
+// Indicadores visuales
+function showTypingIndicator() {
+    const container = document.getElementById('chatMessages');
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator active';
+    typingDiv.id = 'typingIndicator';
+    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    container.appendChild(typingDiv);
+    scrollToBottom();
 }
 
-// Función para obtener respuestas del bot
-function getBotResponse(message) {
-    const lowerMessage = message.toLowerCase();
-    
-    // Respuestas sobre destinos
-    if (lowerMessage.includes('colca') || lowerMessage.includes('cañon') || lowerMessage.includes('canon')) {
-        return '🦅 El Cañón del Colca es uno de los más profundos del mundo con 3,400 metros. Puedes observar el majestuoso vuelo del cóndor andino. ¿Te gustaría más información sobre este tour?';
-    }
-    
-    if (lowerMessage.includes('sillar')) {
-        return '🏔️ La Ruta del Sillar te muestra las canteras de piedra volcánica blanca que construyeron la "Ciudad Blanca". Incluye el Valle de Culebrillas. ¡Una experiencia única de 4 horas!';
-    }
-    
-    if (lowerMessage.includes('pillones') || lowerMessage.includes('cataratas') || lowerMessage.includes('cascada')) {
-        return '💧 Las Cataratas de Pillones son un espectáculo natural impresionante con 3 caídas de agua. Perfectas para los amantes de la naturaleza y la fotografía.';
-    }
-    
-    if (lowerMessage.includes('salinas') || lowerMessage.includes('laguna')) {
-        return '🦩 La Laguna de Salinas es hogar de flamencos rosados y vicuñas. Un paisaje andino espectacular a 4,300 msnm. Tour de día completo.';
-    }
-    
-    if (lowerMessage.includes('campiña') || lowerMessage.includes('bus')) {
-        return '🚌 El Tour Bus Campiña te lleva por los hermosos paisajes rurales de Arequipa, visitando tradicionales picanterías donde degustarás comida típica.';
-    }
-    
-    if (lowerMessage.includes('destino') || lowerMessage.includes('tour') || lowerMessage.includes('lugar')) {
-        return '📍 Tenemos 5 destinos principales:\n🦅 Cañón del Colca\n🏔️ Ruta del Sillar\n💧 Cataratas de Pillones\n🦩 Laguna de Salinas\n🚌 Bus Campiña\n\n¿Cuál te interesa?';
-    }
-    
-    // Respuestas sobre precios
-    if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('cuanto') || lowerMessage.includes('cuánto')) {
-        return '💰 Los precios varían según el destino y la temporada:\n• Colca: S/. 150-200\n• Sillar: S/. 80-100\n• Pillones: S/. 100-120\n\nLlámanos al +51 123 456 789 para cotizaciones exactas.';
-    }
-    
-    // Respuestas sobre reservas
-    if (lowerMessage.includes('reserva') || lowerMessage.includes('reservar') || lowerMessage.includes('booking') || lowerMessage.includes('agendar')) {
-        return '📅 Para reservar:\n✅ Llámanos: +51 123 456 789\n✅ Visita nuestra sección Contacto\n✅ Escríbenos por WhatsApp\n\n¿Qué destino te interesa reservar?';
-    }
-    
-    // Respuestas sobre horarios
-    if (lowerMessage.includes('horario') || lowerMessage.includes('hora') || lowerMessage.includes('tiempo') || lowerMessage.includes('duración') || lowerMessage.includes('duracion')) {
-        return '⏰ Horarios típicos:\n• Colca: Salida 3:00 AM - Retorno 6:00 PM\n• Sillar: 9:00 AM - 1:00 PM\n• Pillones: 8:00 AM - 5:00 PM\n\n¿Qué tour te interesa?';
-    }
-    
-    // Respuestas sobre transporte
-    if (lowerMessage.includes('transporte') || lowerMessage.includes('vehiculo') || lowerMessage.includes('vehículo')) {
-        return '🚐 Contamos con:\n✅ Minibuses modernos\n✅ Buses turísticos\n✅ Vehículos 4x4 para rutas difíciles\n\nTodos con seguro y conductores experimentados.';
-    }
-    
-    // Respuestas sobre clima
-    if (lowerMessage.includes('clima') || lowerMessage.includes('temperatura') || lowerMessage.includes('ropa') || lowerMessage.includes('llevar')) {
-        return '☀️ Clima de Arequipa:\n🌡️ Día: 20-23°C (soleado)\n🌙 Noche: 8-10°C (frío)\n\n📦 Te recomiendo llevar:\n• Protector solar\n• Gorra/sombrero\n• Casaca ligera\n• Agua';
-    }
-    
-    // Respuestas sobre comida
-    if (lowerMessage.includes('comida') || lowerMessage.includes('restaurante') || lowerMessage.includes('comer') || lowerMessage.includes('gastronomía') || lowerMessage.includes('gastronomia')) {
-        return '🍽️ ¡Arequipa es capital gastronómica!\nPrueba:\n• Rocoto relleno\n• Ocopa arequipeña\n• Chupe de camarones\n• Adobo arequipeño\n\nAlgunos tours incluyen almuerzo típico.';
-    }
-    
-    // Respuestas sobre altitud/altura
-    if (lowerMessage.includes('altura') || lowerMessage.includes('altitud') || lowerMessage.includes('soroche') || lowerMessage.includes('mal de altura')) {
-        return '⛰️ Sobre la altitud:\n• Arequipa: 2,335 msnm\n• Colca: hasta 4,910 msnm\n• Salinas: 4,300 msnm\n\n💊 Recomendaciones:\n• Bebe mucha agua\n• Té de coca\n• Descansa al llegar\n• Evita alcohol el primer día';
-    }
-    
-    // Respuestas de ayuda
-    if (lowerMessage.includes('ayuda') || lowerMessage.includes('help') || lowerMessage.includes('info') || lowerMessage.includes('información') || lowerMessage.includes('informacion')) {
-        return '🤝 Puedo ayudarte con:\n📍 Destinos turísticos\n💰 Precios y ofertas\n📅 Reservas\n⏰ Horarios\n🚐 Transporte\n☀️ Clima y qué llevar\n🍽️ Gastronomía\n\n¿Qué necesitas saber?';
-    }
-    
-    // Saludos
-    if (lowerMessage.includes('hola') || lowerMessage.includes('buenos') || lowerMessage.includes('buenas') || lowerMessage.includes('hey') || lowerMessage.includes('hi')) {
-        return '¡Hola! 👋 Bienvenido a MistiTours, tu mejor opción para conocer Arequipa.\n\n¿En qué puedo ayudarte hoy?\n\n💡 Puedes preguntarme sobre destinos, precios, reservas o recomendaciones.';
-    }
-    
-    // Despedidas
-    if (lowerMessage.includes('adios') || lowerMessage.includes('chau') || lowerMessage.includes('hasta luego') || lowerMessage.includes('bye')) {
-        return '¡Hasta pronto! 👋 Gracias por contactar a MistiTours. ¡Esperamos verte en Arequipa! 🏔️';
-    }
-    
-    if (lowerMessage.includes('gracias') || lowerMessage.includes('thanks')) {
-        return '¡De nada! 😊 Es un placer ayudarte. Si tienes más preguntas, aquí estoy. ¡Buen viaje!';
-    }
-    
-    // Respuesta por defecto
-    return '🤔 Interesante pregunta. Te puedo ayudar con:\n\n📍 Destinos turísticos\n💰 Precios y reservas\n⏰ Horarios y duración\n🚐 Transporte\n☀️ Clima y qué llevar\n🍽️ Gastronomía\n\n¿Qué te gustaría saber específicamente?';
+function hideTypingIndicator() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) indicator.remove();
 }
 
-// Inicialización cuando se carga la página
+/* ==========================================
+   🧠 CEREBRO DEL BOT (Inteligencia)
+   ========================================== */
+function getBotResponse(input) {
+    const text = input.toLowerCase().trim();
+
+    // --- HELPER: Plantilla de Tarjeta de Tour ---
+    const tourCard = (emoji, titulo, precio, tiempo, incluye) => {
+        return `
+            <div class="bot-card">
+                <strong>${emoji} ${titulo}</strong><br>
+                <span class="bot-price">💰 S/ ${precio}</span> | ⏱️ ${tiempo}<br>
+                <div class="bot-details">✨ <em>Incluye:</em> ${incluye}</div>
+            </div>
+        `;
+    };
+
+    // ---------------------------------------------
+    // BLOQUE 1: LISTADO GENERAL DE SERVICIOS (Nuevo)
+    // ---------------------------------------------
+    if (text.includes('destinos') || text.includes('tours') || text.includes('lugares') || text.includes('viajes') || text.includes('servicios')) {
+        return `
+            <strong>🗺️ Explora Arequipa con Nosotros</strong><br>
+            Tenemos estas aventuras disponibles para ti:<br><br>
+            <ul class="bot-list">
+                <li>🦅 <strong>Colca:</strong> Cañón, cóndores y cultura.</li>
+                <li>🏔️ <strong>Sillar:</strong> Canteras blancas y arte.</li>
+                <li>🌊 <strong>Rafting:</strong> Adrenalina en el río Chili.</li>
+                <li>🌋 <strong>Misti:</strong> Reto de alta montaña (2 días).</li>
+                <li>🦩 <strong>Salinas:</strong> Espejos de agua y salar.</li>
+                <li>💧 <strong>Pillones:</strong> Cataratas y piedras.</li>
+                <li>🚌 <strong>Campiña:</strong> Tour panorámico relajado.</li>
+                <li>🦕 <strong>Toro Muerto:</strong> Historia y petroglifos.</li>
+            </ul>
+            <em>💬 Escribe el nombre de un lugar para ver detalles.</em>
+        `;
+    }
+
+    // ---------------------------------------------
+    // BLOQUE 2: TOURS ESPECÍFICOS
+    // ---------------------------------------------
+    if (text.includes('colca') || text.includes('cañon')) 
+        return tourCard('🦅', 'Cañón del Colca (Full Day)', '60.00', '14h', 'Mirador Cruz del Cóndor, Chivay, aguas termales.');
+
+    if (text.includes('sillar') || text.includes('cantera')) 
+        return tourCard('🏔️', 'Ruta del Sillar', '35.00', '4h', 'Canteras de Añashuayco, tallado en vivo y Culebrillas.');
+
+    if (text.includes('pillones') || text.includes('catarata')) 
+        return tourCard('💧', 'Catarata de Pillones', '70.00', '9h', 'Caminata entre rocas volcánicas, cascadas e Imata.');
+
+    if (text.includes('salinas') || text.includes('laguna')) 
+        return tourCard('🦩', 'Laguna de Salinas', '55.00', '8h', 'Avistamiento de flamencos, salar y volcanes.');
+
+    if (text.includes('campiña') || text.includes('mirabus')) 
+        return tourCard('🚌', 'Tour Campiña', '40.00', '4h', 'Miradores de Yanahuara, Carmen Alto y Molino de Sabandía.');
+
+    if (text.includes('rafting') || text.includes('chili')) 
+        return tourCard('🌊', 'Rafting Río Chili', '65.00', '3h', 'Rápidos (Clase II, III, IV), equipo completo y guía.');
+
+    if (text.includes('misti') || text.includes('ascenso')) 
+        return tourCard('🌋', 'Ascenso al Misti', '250.00', '2 Días', 'Transporte 4x4, equipo de camping y alimentación.');
+
+    if (text.includes('toro') || text.includes('muerto')) 
+        return tourCard('🦕', 'Toro Muerto', '90.00', 'Full Day', 'Petroglifos milenarios, huellas de dinosaurio y gastronomía.');
+
+    // ---------------------------------------------
+    // BLOQUE 3: INFO COMERCIAL Y UTILITARIA (Mejoras)
+    // ---------------------------------------------
+    
+    // 💰 PRECIOS (Resumen)
+    if (text.includes('precio') || text.includes('costo') || text.includes('cuanto') || text.includes('tarifas')) {
+        return `
+            <strong>💰 Tarifario Oficial 2025</strong><br>
+            <ul class="bot-list">
+                <li>Sillar: <strong>S/ 35</strong></li>
+                <li>Campiña: <strong>S/ 40</strong></li>
+                <li>Salinas: <strong>S/ 55</strong></li>
+                <li>Colca: <strong>S/ 60</strong></li>
+                <li>Rafting: <strong>S/ 65</strong></li>
+                <li>Pillones: <strong>S/ 70</strong></li>
+                <li>Misti: <strong>S/ 250</strong></li>
+            </ul>
+        `;
+    }
+
+    // 💳 MÉTODOS DE PAGO (Nuevo - Vital para ventas)
+    if (text.includes('pago') || text.includes('pagar') || text.includes('yape') || text.includes('tarjeta') || text.includes('banco')) {
+        return `
+            <strong>💳 Métodos de Pago Aceptados</strong><br>
+            Para confirmar tu reserva puedes usar:<br>
+            <ul class="bot-list">
+                <li>📱 <strong>Yape / Plin:</strong> (+51 999 999 999)</li>
+                <li>🏦 <strong>Transferencia:</strong> BCP / Interbank</li>
+                <li>💵 <strong>Efectivo:</strong> Soles o Dólares</li>
+                <li>💳 <strong>Tarjetas:</strong> Visa/Mastercard (+5% comisión)</li>
+            </ul>
+            <em>Se requiere el 50% de adelanto para reservar.</em>
+        `;
+    }
+
+    // 🚐 TRANSPORTE PRIVADO
+    if (text.includes('transporte') || text.includes('carro') || text.includes('alquiler') || text.includes('movilidad')) {
+        return `
+            <strong>🚐 Alquiler de Movilidad Privada</strong><br>
+            Ideal para traslados al aeropuerto o tours privados:<br>
+            <ul class="bot-list">
+                <li>🚗 Sedán (1-3 pax)</li>
+                <li>🚙 SUV 4x4 (1-4 pax)</li>
+                <li>🚐 Minivan (5-10 pax)</li>
+                <li>🚌 Sprinter (15-19 pax)</li>
+            </ul>
+        `;
+    }
+
+    // ⏰ HORARIOS DE ATENCIÓN (Nuevo)
+    if (text.includes('horario') || text.includes('hora') || text.includes('abierto') || text.includes('oficina')) {
+        return `
+            <strong>🕒 Horarios de Atención</strong><br>
+            <ul>
+                <li><strong>Oficina:</strong> Lun-Sáb 8:00am - 7:00pm</li>
+                <li><strong>WhatsApp:</strong> 24/7 (Respondemos lo antes posible)</li>
+                <li><strong>Salidas Tours:</strong> De 4:00am a 9:00am (según destino)</li>
+            </ul>
+        `;
+    }
+
+    // 🌤️ CLIMA Y ROPA
+    if (text.includes('clima') || text.includes('ropa') || text.includes('llevar')) {
+        return `
+            <strong>☀️ Clima y Equipaje</strong><br>
+            Arequipa tiene sol fuerte de día y frío de noche.<br>
+            🎒 <em>Indispensable:</em>
+            <ul class="bot-list">
+                <li>Bloqueador solar y lentes</li>
+                <li>Sombrero o gorra</li>
+                <li>Casaca cortavientos</li>
+                <li>Agua (1L min)</li>
+            </ul>
+        `;
+    }
+
+    // 📅 RESERVA Y CONTACTO
+    if (text.includes('reserva') || text.includes('whatsapp') || text.includes('contacto')) {
+        return `
+            <strong>📅 ¡Reserva tu Aventura!</strong><br>
+            1️⃣ Escríbenos al <strong>WhatsApp: +51 123 456 789</strong><br>
+            2️⃣ Ve a la sección <a href="/contacto" style="color:#d32f2f;">Contacto</a><br>
+            3️⃣ Correo: reservas@mistitours.com
+        `;
+    }
+
+    // 👋 SALUDOS (Mejorado - Menú de opciones)
+    if (text.includes('hola') || text.includes('buenos') || text.includes('hi')) {
+        return `
+            ¡Hola! 👋 <strong>Bienvenido a MistiTours.</strong><br>
+            Soy tu asistente virtual. ¿Qué buscas hoy?<br><br>
+            <ul class="bot-list">
+                <li>📍 <strong>"Ver Destinos"</strong> (Catálogo)</li>
+                <li>💰 <strong>"Ver Precios"</strong> (Lista rápida)</li>
+                <li>💳 <strong>"Formas de Pago"</strong></li>
+                <li>🚐 <strong>"Transporte Privado"</strong></li>
+            </ul>
+        `;
+    }
+
+    if (text.includes('gracias') || text.includes('chau')) {
+        return '¡Gracias a ti! 👋 Esperamos verte pronto en Arequipa.';
+    }
+
+    // ❓ DEFAULT
+    return `
+        🤔 <strong>No entendí bien tu consulta.</strong><br>
+        Intenta escribir palabras clave como:<br>
+        <ul class="bot-list">
+            <li>"Tours" o "Destinos"</li>
+            <li>"Precios"</li>
+            <li>"Pagos"</li>
+            <li>"Colca"</li>
+        </ul>
+    `;
+}
+
+// Inicialización
 window.addEventListener('load', () => {
-    console.log('✅ Chatbot MistiTours listo y visible!');
-    
-    // Inicializar el estado del botón flotante
+    // Asegurar estado inicial correcto
     const chatWindow = document.getElementById('chatWindow');
-    const chatButton = document.getElementById('chatbotButton');
+    const chatbotButton = document.getElementById('chatbotButton');
     
-    // Si el chat está activo, ocultar el botón
     if (chatWindow && chatWindow.classList.contains('active')) {
-        if (chatButton) chatButton.style.display = 'none';
+        chatbotButton.style.display = 'none';
     } else {
-        // Si el chat está cerrado, mostrar el botón
-        if (chatButton) chatButton.style.display = 'flex';
+        chatbotButton.style.display = 'flex';
     }
-    
-    // Opcional: Mostrar mensaje de bienvenida después de 2 segundos
-    setTimeout(() => {
-        addMessage('¿Tienes alguna pregunta sobre nuestros tours? ¡Estoy aquí para ayudarte! 😊', 'bot');
-    }, 2000);
 });

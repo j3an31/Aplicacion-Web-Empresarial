@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -19,8 +19,20 @@ def transporte():
 def destinos():
     return render_template("destinos.html")
 
-@app.route("/contacto")
+@app.route("/contacto", methods=["GET", "POST"])
 def contacto():
+    if request.method == "POST":
+        # Recibir los datos validados por JS
+        nombre = request.form.get("nombre")
+        tour_seleccionado = request.form.get("tour")
+        vehiculo = request.form.get("movilidad")
+        personas = request.form.get("personas")
+        
+        print(f"Nueva reserva de {nombre} para {tour_seleccionado} en {vehiculo}")
+        
+        
+        return render_template("index.html", success=True) 
+        
     return render_template("contacto.html")
 
 # Manejo de error 404 (Página no encontrada)

@@ -1,160 +1,160 @@
 /* --- Variables para consistencia (puedes moverlas a tu base) --- */
 :root {
-    --primary-color: #D32F2F; /* Un rojo "Arequipa" o similar */
-    --text-dark: #333;
-    --text-light: #666;
-    --bg-light: #f9f9f9;
-    --white: #ffffff;
+  --primary-color: #d32f2f; /* Un rojo "Arequipa" o similar */
+  --text-dark: #333;
+  --text-light: #666;
+  --bg-light: #f9f9f9;
+  --white: #ffffff;
 }
 
 /* --- Utilidad: Contenedor centrado --- */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* --- 1. HERO SECTION (Imagen principal) --- */
 .hero-nosotros {
-    position: relative;
-    /* Asegúrate de tener una imagen de fondo aquí */
-    background-image: url('/static/imagenes/MiradorYanahuara.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    
-    height: 60vh; /* Ocupa el 60% de la altura de la pantalla */
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-align: center;
+  position: relative;
+  /* Asegúrate de tener una imagen de fondo aquí */
+  background-image: url("/static/imagenes/MiradorYanahuara.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  height: 60vh; /* Ocupa el 60% de la altura de la pantalla */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
 }
 
 /* Capa oscura para que el texto resalte sobre la foto */
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.5); 
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content .lead-text {
-    font-size: 1.25rem;
-    max-width: 700px;
-    margin: 0 auto;
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* --- 2. SECCIÓN DESCRIPCIÓN (Texto + Imagen opcional) --- */
 .about-description {
-    padding: 4rem 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 3rem;
-    background-color: var(--white);
+  padding: 4rem 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  background-color: var(--white);
 }
 
 .about-description .text-block {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-description h2 {
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-    border-bottom: 3px solid var(--primary-color);
-    display: inline-block;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  display: inline-block;
 }
 
 .about-description p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-    text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  text-align: justify;
 }
 
 /* Bloque para imagen decorativa al lado del texto */
 .about-description .image-block {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-description .image-block img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* --- 3. SECCIÓN FEATURES (Valores) --- */
 .features-section {
-    background-color: var(--bg-light);
-    padding: 4rem 0;
-    text-align: center;
+  background-color: var(--bg-light);
+  padding: 4rem 0;
+  text-align: center;
 }
 
 .features-section h2 {
-    font-size: 2.2rem;
-    color: var(--text-dark);
-    margin-bottom: 3rem;
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-bottom: 3rem;
 }
 
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .feature-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card .icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    display: block;
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
 }
 
 .feature-card p {
-    color: var(--text-light);
-    line-height: 1.5;
+  color: var(--text-light);
+  line-height: 1.5;
 }
 
 /* --- Responsive básico --- */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .about-description {
-        flex-direction: column;
-        padding: 2rem 20px;
-    }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    flex-direction: column;
+    padding: 2rem 20px;
+  }
 }
